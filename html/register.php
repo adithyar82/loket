@@ -150,7 +150,7 @@ include('connect_db.php');
                         </ul> -->
                     <!-- </div> -->
                     <div class="logo-block">
-                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
+                        <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                     </div>
                     
                     <div class="cart-block cart-hover-div " onclick="openCart()">
@@ -260,7 +260,7 @@ include('connect_db.php');
                         <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                                 </div>
                                 <div class="footer-detail">
                                     <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>

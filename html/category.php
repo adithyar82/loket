@@ -670,48 +670,35 @@ include('connect_db.php');
             <div class="col-xl-8 col-lg-9 offset-xl-2 px-abjust">
                 <div class="slide-1 no-arrow ">
                     <div class="slide-1 no-arrow ">
-                        <div>
+                    <?php
+                    $sql_3 = "SELECT * FROM offers;";
+                    $result_3 = $conn->query($sql_3);
+                    if($result_3->num_rows>0){
+                        while($row=$result_3->fetch_assoc()){
+                            $offer_name = $row['offer_name'];
+                            $offer_code = $row['offer_code'];
+                            $image = $row['image'];
+                            echo'<div>
                             <div class="slider-banner slide-banner-5 ">
                                 <div class="slider-img">
-                                    <img src="../assets/images/collection/BigDeal_images/1920-550/electronics.jpg" class="bg-img  " alt="slider" >
-                                    <ul class="layout6-slide-2">
-                                        <li><img src="../assets/images/layout-6/slider/2.2.png" class="img-fluid" alt="slider"></li>
-                                        <li><img src="../assets/images/layout-6/slider/2.3.png" class="img-fluid" alt="slider"></li>
-                                        <li><img src="../assets/images/layout-6/slider/2.4.png" class="img-fluid" alt="slider"></li>
-                                        <li><img src="../assets/images/layout-6/slider/2.5.png" class="img-fluid" alt="slider"></li>
-                                    </ul>
+                                    <img src="'.$image.'" class="bg-img  " alt="slider" >
                                 </div>
                                 <div class="slider-banner-contain">
                                     <div>
-                                        <h5>save 30%</h5>
-                                        <h3>@ lowest prices</h3>
-                                        <h1 style="color:white">electronics </h1>
+                                        
+                                        <h3>'.$offer_name.'</h3>
+                                        <h1 style="color:white">'.$offer_code.' </h1>
                                         <a class="btn btn-rounded">
                                             shop now
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="slider-banner slide-banner-5">
-                                <div class="slider-img">
-                                    <ul class="layout6-slide-1">
-                                        <li id="img-1"><img src="../assets/images/collection/BigDeal_images/1920-550/electronics.jpg" class="img-fluid" alt="slider"></li>
-                                    </ul>
-                                </div>
-                                <div class="slider-banner-contain">
-                                    <div >
-                                        <h5>save 30%</h5>
-                                        <h3></h3>
-                                        <h1></h1>
-                                        <a class="btn btn-rounded">
-                                            shop now
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div>';
+                        }
+                    }
+                    ?>  
+                        
                     </div>
                 </div>
             </div>
@@ -1069,8 +1056,10 @@ include('connect_db.php');
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
-                                <h6>'.$product_name.'</h6>
-                                <span class="detail-price">'.$initial_cost.'<span>'.$final_cost.'</span></span>
+                                <a href = "details_1.php"><h6>'.$product_name.'</h6></a>
+                                <span class="detail-price">'.$initial_cost.'<span>'.$final_cost.' &emsp; &emsp; &emsp;<a href="javascript:void(0)" title="Add to Wishlist" style="color:blue">
+                                <i class="ti-heart" aria-hidden="true"  ></i>
+                            </a></span></span>
                             </div>
                             <div class="addtocart_btn">
                                 <button class="add-button add_cart" onclick = "window.location.href= cart.php" title="Add to cart">
@@ -1341,7 +1330,10 @@ include('connect_db.php');
                                             <div class="product-front">
                                                 <img src="'.$product_image.'" class="img-fluid" alt="product">
                                             </div>
-
+                                            <div class="product-back">
+                                                <img src="../assets/images/layout-6/product/4.jpg" class="img-fluid" alt="product">
+                                            </div>
+                                            
                                             <div class="product-icon">
                                                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                     <i class="ti-bag" ></i>
@@ -1354,7 +1346,7 @@ include('connect_db.php');
                                                 </a>
                                                
                                             </div>
-                                            <div class="new-label1">'.round($discount,0).'%</div>
+                                            <div class="new-label1">'.round($discount).'%</div>
                                             
 
                                         </div>
@@ -1366,8 +1358,9 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>'.$product_name.' .</h6>
-                                            <span class="detail-price">Rs '.$final_cost.'<span>Rs '.$initial_cost.'</span></span>
+                                            <a href = "details_1.php?id='.$product_name.'"><h6>'.$product_name.'</h6></a>
+                                            <span class="detail-price">Rs '.$final_cost.'<span>Rs '.$initial_cost.'
+                                            </span></span>
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button" title="Buy Now" style = "background-color:#ffaa1d">

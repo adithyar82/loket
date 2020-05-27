@@ -703,7 +703,7 @@
                         <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                                 </div>
                                 <div class="footer-detail">
                                     <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>

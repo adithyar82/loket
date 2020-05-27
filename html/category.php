@@ -529,19 +529,7 @@ include('connect_db.php');
                                             while($row=$result_2->fetch_assoc()){
                                                 $category_name = $row['category_name'];
                                                 $category_icon = $row['category_icon'];
-                                                echo'<button onclick="myFunction()"><li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li></button>';
-                                                $sql_3 = "SELECT * FROM sub_category;";
-                                                $result_3 = $conn->query($sql_3);
-                                                if($result_3->num_rows>0){
-                                                    while($row=$result_3->fetch_assoc()){
-                                                        $sub_category_icon = $row['sub_category_icon'];
-                                                        $sub_category_name = $row['sub_category_name'];
-                                                        echo'
-                                                        <div id="myDIV">
-                                                            <li> <img src="'.$sub_category_icon.'" alt="category-product"> <a href="#">'.$sub_category_name.'</a></li>
-                                                        </div>';
-                                                    }
-                                                }
+                                                        echo'<li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li>';
                                             }
                                         }
                                         ?>
@@ -704,7 +692,7 @@ include('connect_db.php');
             </div>
             <div class="col-xl-2 col-sm-3 pl-0 offer-banner">
                 <div class="offer-banner-img">
-                    <img src="../assets/images/layout-6/collection-banner/4.jpg" alt="offer-banner" class="img-fluid  ">
+                    <img src="../assets/images/layout-6/product/4.jpg" class="img-fluid" alt="product">
                 </div>
             </div>
         </div>
@@ -757,7 +745,7 @@ include('connect_db.php');
             <div class="col-md-2  pl-md-0">
                 <div class="collection-banner-main p-top banner-6">
                     <div class="collection-img">
-                        <img src="../assets/images/layout-6/collection-banner/3.jpg" class="img-fluid bg-img  " alt="banner">
+                    <img src="../assets/images/collection/BigDeal_images/255-275/fruit.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="collection-banner-contain">
                         <div>
@@ -1293,12 +1281,12 @@ include('connect_db.php');
     <div class="tab-product-main">
         <div class="tab-prodcut-contain">
             <ul class="tabs tab-title">
-                <li class="current"><a href="tab-1">elcetronics</a></li>
+                <li class="current"><a href="tab-1">electronics</a></li>
                 <li class=""><a href="tab-2">Grocery</a></li>
                 <li class=""><a href="tab-3">hardware</a></li>
                 <li class=""><a href="tab-4">medicines</a></li>
-                <li class=""><a href="tab-5">toys</a></li>
-                <li class=""><a href="tab-6">books</a></li>
+                <li class=""><a href="tab-5">sports</a></li>
+                <li class=""><a href="tab-6"></a></li>
             </ul>
         </div>
     </div>
@@ -1415,8 +1403,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                            <!--   -->
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1469,8 +1456,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1524,8 +1510,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1578,8 +1563,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1631,8 +1615,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1685,8 +1668,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1739,8 +1721,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1797,8 +1778,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1851,8 +1831,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1905,8 +1884,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -1960,8 +1938,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2014,8 +1991,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2067,8 +2043,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2121,8 +2096,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2179,8 +2153,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2233,8 +2206,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2287,8 +2259,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2341,8 +2312,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2396,8 +2366,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2450,8 +2419,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2503,8 +2471,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2560,8 +2527,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2614,8 +2580,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2668,8 +2633,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2722,8 +2686,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2776,8 +2739,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2831,8 +2793,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2885,8 +2846,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2943,8 +2903,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -2996,8 +2955,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -3050,8 +3008,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -3104,8 +3061,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -3158,8 +3114,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -3212,8 +3167,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">
@@ -3267,8 +3221,7 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
-                                            <h6>Vaccinium cyanococcus .</h6>
-                                            <span class="detail-price">$56.21<span>$24.00</span></span>
+                                             
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button add_cart" title="Add to cart">

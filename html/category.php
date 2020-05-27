@@ -4,7 +4,7 @@ include('connect_db.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bigdeal - Multi-purpopse E-commerce Html Template</title>
+    <title>Loket - Multi-purpopse E-commerce </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -52,18 +52,18 @@ include('connect_db.php');
             <div class="row">
                 <div class="col-xl-5 col-md-7 col-sm-6">
                     <div class="top-header-left">
-                        <div class="shpping-order">
+                        <!-- <div class="shpping-order">
                             <h6>free shipping on order over $99 </h6>
-                        </div>
+                        </div> -->
                         <div class="app-link">
-                            <h6>
+                            <!-- <h6>
                                 Download aap
-                            </h6>
-                            <ul>
+                            </h6> -->
+                            <!-- <ul>
                                 <li><a><i class="fa fa-apple" ></i></a></li>
                                 <li><a><i class="fa fa-android" ></i></a></li>
                                 <li><a><i class="fa fa-windows" ></i></a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ include('connect_db.php');
                             </div>
                             <div class="brand-logo">
                                 <a href="#">
-                                    <img src="../assets/images/layout-6/logo/logo.png" class="img-fluid  " alt="logo-header">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                                 </a>
                             </div>
                         </div>
@@ -181,7 +181,7 @@ include('connect_db.php');
                                         <!--HOME-END-->
 
                                         <!--SHOP-->
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">shop</a>
                                             <ul>
                                                 <li><a href="category-page(left-sidebar).html">left sidebar</a></li>
@@ -195,7 +195,7 @@ include('connect_db.php');
                                                 <li><a href="category-page(6-grid).html">6 grid</a></li>
                                                 <li><a href="category-page(list-view).html">list view</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <!--SHOP-END-->
                                         <!--product-meu start-->
                                         <li class="mega" id="hover-cls"><a href="#">product
@@ -308,7 +308,7 @@ include('connect_db.php');
                                         <!--product-meu end-->
 
                                         <!--mega-meu start-->
-                                        <li class="mega" >
+                                        <!-- <li class="mega" >
                                             <a href="#">features</a>
                                             <ul class="mega-menu full-mega-menu ratio_landscape">
                                                 <li>
@@ -398,7 +398,7 @@ include('connect_db.php');
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <!--mega-meu end-->
 
                                         <!--pages-meu start-->
@@ -441,7 +441,7 @@ include('connect_db.php');
                                         <!--product-end end-->
 
                                         <!--blog-meu start-->
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">blog</a>
                                             <ul>
                                                 <li><a href="blog(left-sidebar).html">left sidebar</a></li>
@@ -449,7 +449,7 @@ include('connect_db.php');
                                                 <li><a href="blog(no-sidebar).html">no sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <!--blog-meu end-->
                                     </ul>
                                 </nav>
@@ -484,8 +484,17 @@ include('connect_db.php');
                                         <li class="mobile-setting mobile-setting-hover" onclick="openSetting()"><a href="#"><i class="icon-settings"></i></a>
                                         </li>
                                     </ul>
+                                    <?php
+                                    $sql_2 = "SELECT COUNT(item_name) as total_items FROM items;";
+                                    $result_2 = $conn->query($sql_2);
+                                    if($result_2->num_rows>0){
+                                        while($row=$result_2->fetch_assoc()){
+                                            $total_items = $row['total_items'];
+                                        }
+                                    }
+                                    ?>
                                     <div class="cart-block mobile-cart cart-hover-div" onclick="openCart()">
-                                        <a href="#"><span class="cart-product">0</span><i class="icon-shopping-cart"></i></a>
+                                        <a href="#"><span class="cart-product" style="color:black"><?php echo $total_items?></span><i class="icon-shopping-cart"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -517,8 +526,8 @@ include('connect_db.php');
                                         if($result2->num_rows>0){
                                             while($row=$result2->fetch_assoc()){
                                                 $category_name = $row['category_name'];
-                                                $category_image = $row['category_image'];
-                                                echo'<li> <img src="'.$category_image.'" alt="category-product"> <a href="#">'.$category_name.'</a></li>';
+                                                $category_icon = $row['category_icon'];
+                                                echo'<li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li>';
                                             }
                                         }
                                         ?>
@@ -548,8 +557,16 @@ include('connect_db.php');
                                             <div class="input-group-prepend">
                                                 <select>
                                                     <option>All Category</option>
-                                                    <option>indurstrial</option>
-                                                    <option>sports</option>
+                                                    <?php
+                                                    $sql_1 = "SELECT * FROM category;";
+                                                    $result_1 = $conn->query($sql_1);
+                                                    if($result_1->num_rows>0){
+                                                        while($row=$result_1->fetch_assoc()){
+                                                            $category_name = $row['category_name'];
+                                                            echo '<option>'.$category_name.'</option>';
+                                                        }
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -701,7 +718,7 @@ include('connect_db.php');
             <div class="col-md-4 offset-xl-2 p-r-md-0">
                 <div class="collection-banner-main p-left">
                     <div class="collection-img">
-                        <img src="../assets/images/layout-6/collection-banner/1.jpg" class="img-fluid bg-img  " alt="banner">
+                        <img src="../assets/images/collection/BigDeal_images/547-275/electronics_1.jpg" class="img-fluid bg-img  " alt="banner">
                     </div>
                     <div class="collection-banner-contain">
                         <div>
@@ -720,7 +737,7 @@ include('connect_db.php');
             <div class="col-md-4 col-4">
                 <div class="collection-banner-main p-left">
                     <div class="collection-img">
-                        <img src="../assets/images/layout-6/collection-banner/2.jpg" class="img-fluid bg-img  " alt="banner">
+                        <img src="../assets/images/collection/BigDeal_images/547-275/g2.jpg" class="img-fluid bg-img  " alt="banner">
                     </div>
                     <div class="collection-banner-contain">
                         <div>
@@ -758,7 +775,22 @@ include('connect_db.php');
 
 <!--rounded category start-->
 <section class="rounded-category vagitable-category  section-mt-space">
-    <div class="container">category_icon.'" alt="category-img" class="img-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="slide-6 no-arrow ">
+                <?php 
+                $sql3 = "SELECT * FROM sub_category;";
+                $result3 = $conn->query($sql3);
+                if($result3->num_rows>0){
+                    while($row=$result3->fetch_assoc()){
+                        $sub_category_name = $row['sub_category_name'];
+                        $sub_category_icon = $row['sub_category_icon'];
+                        echo'<div>
+                        <div class="category-contain">
+                            <a href="#">
+                                <div class="img-wrapper">
+                                    <img src="'.$sub_category_icon.'" alt="category-img" class="img-fluid">
                                 </div>
                                 <div>
                                     <div class="btn-rounded">
@@ -770,7 +802,7 @@ include('connect_db.php');
                     </div>';
                     }
                 }
-                ?>
+            ?> 
                 </div>
             </div>
         </div>
@@ -1027,20 +1059,9 @@ include('connect_db.php');
                                 <span class="detail-price">'.$initial_cost.'<span>'.$final_cost.'</span></span>
                             </div>
                             <div class="addtocart_btn">
-                                <button class="add-button add_cart" title="Add to cart">
+                                <button class="add-button add_cart" onclick = "window.location.href= cart.php" title="Add to cart">
                                     add to cart
                                 </button>
-                                <div class="qty-box cart_qty">
-                                    <div class="input-group">
-                                        <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                        </button>
-                                        <input type="text" name="quantity" class="form-control input-number qty-input" value="1">
-                                        <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>';
@@ -1320,6 +1341,7 @@ include('connect_db.php');
                                                
                                             </div>
                                             <div class="new-label1">'.round($discount,0).'%</div>
+                                            
 
                                         </div>
                                         <div class="product-detail detail-center1">
@@ -1338,21 +1360,9 @@ include('connect_db.php');
                                                 Buy Now
                                             </button>
                                         </div>
-                                        <div class="addtocart_btn">
-                                            <button class="add-button add_cart" title="Add to cart">
-                                                add to cart
-                                            </button>
-                                            <div class="qty-box cart_qty">
-                                                <div class="input-group">
-                                                    <button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                    </button>
-                                                    <input type="text" name="quantity" class="form-control input-number qty-input" value="1">
-                                                    <button type="button" class="btn quantity-right-plus" data-type="plus" data-field="">
-                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        <div class="">
+                                        <button class="add-button"><a class="addtocart_btn" href="cart_1.php?id='.$product_name.'" style="color:white">Add to Cart</a>
+                                        </button>
                                         </div>
                                     </div>
                                 </div>';
@@ -3448,7 +3458,7 @@ include('connect_db.php');
                         <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/layout-6/logo/logo.png" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
                                 </div>
                                 <div class="footer-detail">
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>

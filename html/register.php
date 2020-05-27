@@ -150,7 +150,7 @@ include('connect_db.php');
                         </ul> -->
                     </div>
                     <div class="logo-block">
-                        <a href="index.html"><img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo"></a>
+                        <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                     </div>
                     
                     <div class="cart-block cart-hover-div " onclick="openCart()">
@@ -260,7 +260,7 @@ include('connect_db.php');
                         <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                                 </div>
                                 <div class="footer-detail">
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>

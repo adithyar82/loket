@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
             },
             function(isConfirm){
             if (isConfirm) {
-                window.location.href = "layout-6.html";
+                window.location.href = "category.php";
             }
             }); }, 1000);
         </script>';

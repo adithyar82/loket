@@ -32,14 +32,16 @@ include('connect_db.php');
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
     <!-- Theme css -->
+    
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
 </head>
 <body class="bg-light">
 
 <!-- loader start -->
 <div class="loader-wrapper">
     <div>
-        <img src="../assets/images/vagitable-loader.gif" alt="loader" class="img-fluid">
+        <img src="../assets/images/loader.gif" alt="loader" class="img-fluid">
     </div>
 </div>
 <!-- loader end -->
@@ -81,7 +83,7 @@ include('connect_db.php');
                             </ul>
                         </div>
                         <div class="language-block">
-                            <div class="language-dropdown">
+                            <!-- <div class="language-dropdown">
                                 <span  class="language-dropdown-click">
                                     english <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </span>
@@ -101,7 +103,7 @@ include('connect_db.php');
                                     <li><a href="#"><i class="fa fa-usd"></i>usd</a></li>
                                     <li><a href="#"><i class="fa fa-eur"></i>eur</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -145,7 +147,7 @@ include('connect_db.php');
                                     </li>
                                     <li>
                                         <a class="mor-slide-click">
-                                            mor category
+                                            more category
                                             <i class="fa fa-angle-down pro-down" ></i>
                                             <i class="fa fa-angle-up pro-up" ></i>
                                         </a>
@@ -169,14 +171,14 @@ include('connect_db.php');
                                         <!--HOME-->
                                         <li>
                                             <a href="#">Home</a>
-                                            <ul>
+                                            <!-- <ul>
                                                 <li><a target="_blank" href="index.html">layout 1</a></li>
                                                 <li><a target="_blank" href="layout-2.html">layout 2</a></li>
                                                 <li><a target="_blank" href="layout-3.html">layout 3</a></li>
                                                 <li><a target="_blank" href="layout-4.html">layout 4</a></li>
                                                 <li><a target="_blank" href="layout-5.html">layout 5</a></li>
                                                 <li><a target="_blank" href="layout-6.html">layout 6</a></li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <!--HOME-END-->
 
@@ -198,7 +200,7 @@ include('connect_db.php');
                                         </li> -->
                                         <!--SHOP-END-->
                                         <!--product-meu start-->
-                                        <li class="mega" id="hover-cls"><a href="#">product
+                                        <!-- <li class="mega" id="hover-cls"><a href="#">product
                                         </a>
                                             <ul class="mega-menu full-mega-menu ">
                                                 <li>
@@ -304,7 +306,7 @@ include('connect_db.php');
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <!--product-meu end-->
 
                                         <!--mega-meu start-->
@@ -521,13 +523,25 @@ include('connect_db.php');
                                     <div class="collapse show nav-desk" id="navbarToggleExternalContent">
                                         <ul class="nav-cat title-font mt-0">
                                         <?php
-                                        $sql2 = "SELECT * FROM category;";
-                                        $result2 = $conn->query($sql2);
-                                        if($result2->num_rows>0){
-                                            while($row=$result2->fetch_assoc()){
+                                        $sql_2 = "SELECT * FROM category;";
+                                        $result_2 = $conn->query($sql_2);
+                                        if($result_2->num_rows>0){
+                                            while($row=$result_2->fetch_assoc()){
                                                 $category_name = $row['category_name'];
                                                 $category_icon = $row['category_icon'];
-                                                echo'<li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li>';
+                                                echo'<button onclick="myFunction()"><li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li></button>';
+                                                $sql_3 = "SELECT * FROM sub_category;";
+                                                $result_3 = $conn->query($sql_3);
+                                                if($result_3->num_rows>0){
+                                                    while($row=$result_3->fetch_assoc()){
+                                                        $sub_category_icon = $row['sub_category_icon'];
+                                                        $sub_category_name = $row['sub_category_name'];
+                                                        echo'
+                                                        <div id="myDIV">
+                                                            <li> <img src="'.$sub_category_icon.'" alt="category-product"> <a href="#">'.$sub_category_name.'</a></li>
+                                                        </div>';
+                                                    }
+                                                }
                                             }
                                         }
                                         ?>
@@ -540,7 +554,7 @@ include('connect_db.php');
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a class="mor-slide-click">mor category <i class="fa fa-angle-down pro-down"></i><i class="fa fa-angle-up pro-up"></i></a>
+                                                <a class="mor-slide-click">more category <i class="fa fa-angle-down pro-down"></i><i class="fa fa-angle-up pro-up"></i></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -578,7 +592,7 @@ include('connect_db.php');
                             <div class="contact-block">
                                 <div>
                                     <i class="fa fa-volume-control-phone"></i>
-                                    <span>call us<span>123-456-76890</span></span>
+                                    <span><span>Call Us - 8095566699</span></span>
                                 </div>
                             </div>
                             <div class="btn-group">
@@ -709,8 +723,8 @@ include('connect_db.php');
                     </div>
                     <div class="collection-banner-contain">
                         <div>
-                            <h3>fresh</h3>
-                            <h4>orange juice</h4>
+                            <h3></h3>
+                            <h4></h4>
                             <div class="shop">
                                 <a>
                                     shop now
@@ -728,8 +742,8 @@ include('connect_db.php');
                     </div>
                     <div class="collection-banner-contain">
                         <div>
-                            <h3>fresh</h3>
-                            <h4>pineapple</h4>
+                            <h3></h3>
+                            <h4></h4>
                             <div class="shop">
                                 <a>
                                     shop now
@@ -748,7 +762,7 @@ include('connect_db.php');
                     <div class="collection-banner-contain">
                         <div>
                             <h6>10% off</h6>
-                            <h4>fresh juice</h4>
+                            <h4></h4>
                         </div>
                     </div>
                 </div>
@@ -915,10 +929,10 @@ include('connect_db.php');
                        <div class="paymant-offer-mian">
                            <div>
                                <img src="../assets/images/layout-6/payment-offer/1.png" alt="paymet-offer" class="img-fluid">
-                               <h2>$202</h2>
+                               <h2>Rs.200</h2>
                                <h3>OUR FEATURED OFFERS</h3>
-                               <h4>shop for <span>$50 +</span></h4>
-                               <div class="payment-cod">code <span> &nbsp; : &nbsp; citioct</span></div>
+                               <h4>shop for <span>Rs.1000 +</span></h4>
+                               <div class="payment-cod">code <span> &nbsp; : &nbsp; V200</span></div>
                            </div>
                        </div>
                    </div>
@@ -926,10 +940,10 @@ include('connect_db.php');
                         <div class="paymant-offer-mian">
                             <div>
                                 <img src="../assets/images/layout-6/payment-offer/2.png" alt="paymet-offer" class="img-fluid">
-                                <h2>$202</h2>
+                                <h2>Rs.250</h2>
                                 <h3>OUR FEATURED OFFERS</h3>
-                                <h4>shop for <span>$50 +</span></h4>
-                                <div class="payment-cod">code <span> &nbsp; : &nbsp; citioct</span></div>
+                                <h4>shop for <span>Rs.1500 +</span></h4>
+                                <div class="payment-cod">code <span> &nbsp; : &nbsp; M250</span></div>
                             </div>
                         </div>
                     </div>
@@ -937,10 +951,10 @@ include('connect_db.php');
                         <div class="paymant-offer-mian">
                             <div>
                                 <img src="../assets/images/layout-6/payment-offer/1.png" alt="paymet-offer" class="img-fluid">
-                                <h2>$202</h2>
+                                <h2>Rs.250</h2>
                                 <h3>OUR FEATURED OFFERS</h3>
-                                <h4>shop for <span>$50 +</span></h4>
-                                <div class="payment-cod">code <span> &nbsp; : &nbsp; citioct</span></div>
+                                <h4>shop for <span>Rs.1500 +</span></h4>
+                                <div class="payment-cod">code <span> &nbsp; : &nbsp; M250</span></div>
                             </div>
                         </div>
                     </div>
@@ -948,10 +962,10 @@ include('connect_db.php');
                         <div class="paymant-offer-mian">
                             <div>
                                 <img src="../assets/images/layout-6/payment-offer/2.png" alt="paymet-offer" class="img-fluid">
-                                <h2>$202</h2>
+                                <h2>Rs.200</h2>
                                 <h3>OUR FEATURED OFFERS</h3>
-                                <h4>shop for <span>$50 +</span></h4>
-                                <div class="payment-cod">code <span> &nbsp; : &nbsp; citioct</span></div>
+                                <h4>shop for <span>Rs.1000 +</span></h4>
+                                <div class="payment-cod">code <span> &nbsp; : &nbsp; V200</span></div>
                             </div>
                         </div>
                     </div>
@@ -959,10 +973,10 @@ include('connect_db.php');
                         <div class="paymant-offer-mian">
                             <div>
                                 <img src="../assets/images/layout-6/payment-offer/1.png" alt="paymet-offer" class="img-fluid">
-                                <h2>$202</h2>
+                                <h2>Rs.250</h2>
                                 <h3>OUR FEATURED OFFERS</h3>
-                                <h4>shop for <span>$50 +</span></h4>
-                                <div class="payment-cod">code <span> &nbsp; : &nbsp; citioct</span></div>
+                                <h4>shop for <span>Rs.1500 +</span></h4>
+                                <div class="payment-cod">code <span> &nbsp; : &nbsp; M250</span></div>
                             </div>
                         </div>
                     </div>
@@ -1280,9 +1294,9 @@ include('connect_db.php');
         <div class="tab-prodcut-contain">
             <ul class="tabs tab-title">
                 <li class="current"><a href="tab-1">elcetronics</a></li>
-                <li class=""><a href="tab-2">fashion</a></li>
-                <li class=""><a href="tab-3">footware</a></li>
-                <li class=""><a href="tab-4">sports</a></li>
+                <li class=""><a href="tab-2">Grocery</a></li>
+                <li class=""><a href="tab-3">hardware</a></li>
+                <li class=""><a href="tab-4">medicines</a></li>
                 <li class=""><a href="tab-5">toys</a></li>
                 <li class=""><a href="tab-6">books</a></li>
             </ul>
@@ -3293,8 +3307,8 @@ include('connect_db.php');
             <div class="row">
                 <div class="col">
                     <div class="banner-contain">
-                        <h2>2019</h2>
-                        <h3>food market</h3>
+                        <h2></h2>
+                        <h3>market</h3>
                         <h4>special offer</h4>
                     </div>
                 </div>
@@ -3432,7 +3446,7 @@ include('connect_db.php');
                 <div class="contact-banner-contain">
                     <div class="contact-banner-img"><img src="../assets/images/layout-1/call-img.png" class="img-fluid" alt="call-banner"></div>
                     <div><h3>if you have any question please call us</h3></div>
-                    <div><h2>123-456-7890</h2></div>
+                    <div><h2>8095566699</h2></div>
                 </div>
             </div>
         </div>
@@ -3454,7 +3468,7 @@ include('connect_db.php');
                                     <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
                                 </div>
                                 <div class="footer-detail">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                                <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
                                     <ul class="paymant-bottom">
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
@@ -3471,14 +3485,14 @@ include('connect_db.php');
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <div class="col-md-5 ">
+                                                <!-- <div class="col-md-5 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
                                                             <h4>subscribe to newsletter</h4>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-7 ">
+                                                </div> -->
+                                                <!-- <div class="col-md-7 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -3492,7 +3506,7 @@ include('connect_db.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -3538,10 +3552,10 @@ include('connect_db.php');
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
-                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
-                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
+                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
+                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us: contact.azeempatel@gmail.com</span></li>
+                                                                <!-- <li><i class="fa fa-fax"></i><span>fax 123456</span></li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -3590,7 +3604,7 @@ include('connect_db.php');
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
+                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
                     </div>
                 </div>
             </div>
@@ -3698,7 +3712,7 @@ include('connect_db.php');
 <!-- Add to cart bar end-->
 
 <!--Newsletter modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -3722,7 +3736,7 @@ include('connect_db.php');
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!--Newsletter Modal popup end-->
 
 <!-- Quick-view modal popup start-->

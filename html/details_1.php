@@ -892,7 +892,7 @@ include('connect_db.php');
                                     <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a></div>
                                     <div class="border-product">
                                         <h6 class="product-title">product details</h6>
-                                        <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem,</p>
+                                        <p>Details DetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetails</p>
                                     </div>
                                     <div class="border-product">
                                         <div class="product-icon">
@@ -938,10 +938,10 @@ include('connect_db.php');
                                 </ul>
                                 <div class="tab-content nav-material" id="top-tabContent">
                                     <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                        <p>Details Details Details DetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetails</p>
                                     </div>
                                     <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
-                                        <p class="pl-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                        <p class="pl-0">DetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetails</p>
                                         <div class="single-product-tables">
                                             <table>
                                                 <tbody>
@@ -1105,38 +1105,38 @@ include('connect_db.php');
         <div class="row">
             <div class="col-12">
                 <div class="footer-main-contian">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 pr-lg-0">
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
                                 </div>
                                 <div class="footer-detail">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                                <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
                                     <ul class="paymant-bottom">
-                                        <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid  " alt="pay"></a></li>
-                                        <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid  " alt="pay"></a></li>
-                                        <li><a href="#"><img src="../assets/images/layout-1/pay/3.png" class="img-fluid  " alt="pay"></a></li>
-                                        <li><a href="#"><img src="../assets/images/layout-1/pay/4.png" class="img-fluid  " alt="pay"></a></li>
-                                        <li><a href="#"><img src="../assets/images/layout-1/pay/5.png" class="img-fluid  " alt="pay"></a></li>
+                                        <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
+                                        <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
+                                        <li><a href="#"><img src="../assets/images/layout-1/pay/3.png" class="img-fluid" alt="pay"></a></li>
+                                        <li><a href="#"><img src="../assets/images/layout-1/pay/4.png" class="img-fluid" alt="pay"></a></li>
+                                        <li><a href="#"><img src="../assets/images/layout-1/pay/5.png" class="img-fluid" alt="pay"></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 p-l-md-0">
+                        <div class="col-lg-8 col-md-12 ">
                             <div class="footer-right">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <div class="col-md-5 pr-lg-0">
+                                                <!-- <div class="col-md-5 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            
+                                                            <h4>subscribe to newsletter</h4>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-7 p-l-md-0">
+                                                </div> -->
+                                                <!-- <div class="col-md-7 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -1150,7 +1150,7 @@ include('connect_db.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -1196,10 +1196,10 @@ include('connect_db.php');
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
-                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
-                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
+                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
+                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us: contact.azeempatel@gmail.com</span></li>
+                                                                <!-- <li><i class="fa fa-fax"></i><span>fax 123456</span></li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -1248,7 +1248,7 @@ include('connect_db.php');
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
+                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
                     </div>
                 </div>
             </div>
@@ -1257,13 +1257,131 @@ include('connect_db.php');
 </footer>
 <!--footer end-->
 
+
 <!-- tap to top -->
-<div class="tap-top">
+<div class="tap-top bg-white">
     <div>
-        <i class="fa fa-angle-double-up"></i>
+        <img src="../assets/images/icon/tap-top.png" class="img-fluid" alt="tap top"/>
     </div>
 </div>
 <!-- tap to top End -->
+
+<!-- Add to cart bar -->
+<div id="cart_side" class=" add_to_cart right">
+    <a href="javascript:void(0)" class="overlay" onclick="closeCart()"></a>
+    <div class="cart-inner">
+        <div class="cart_top">
+            <h3>my cart</h3>
+            <div class="close-cart">
+                <a href="javascript:void(0)" onclick="closeCart()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <div class="cart_media">
+            <ul class="cart_product">
+                <li>
+                    <div class="media">
+                        <a href="#">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/2.jpg">
+                        </a>
+                        <div class="media-body">
+                            <a href="#">
+                                <h4>item name</h4>
+                            </a>
+                            <h4>
+                                <span>1 x $ 299.00</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="close-circle">
+                        <a href="#">
+                            <i class="ti-trash" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <a href="#">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/5.jpg">
+                        </a>
+                        <div class="media-body">
+                            <a href="#">
+                                <h4>item name</h4>
+                            </a>
+                            <h4>
+                                <span>1 x $ 299.00</span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="close-circle">
+                        <a href="#">
+                            <i class="ti-trash" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-6/product/1.jpg"></a>
+                        <div class="media-body">
+                            <a href="#">
+                                <h4>item name</h4>
+                            </a>
+                            <h4><span>1 x $ 299.00</span></h4>
+                        </div>
+                    </div>
+                    <div class="close-circle">
+                        <a href="#">
+                            <i class="ti-trash" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="cart_total">
+                <li>
+                    <div class="total">
+                        <h5>subtotal : <span>$299.00</span></h5>
+                    </div>
+                </li>
+                <li>
+                    <div class="buttons">
+                        <a href="cart.html" class="btn btn-normal btn-xs view-cart">view cart</a>
+                        <a href="#" class="btn btn-normal btn-xs checkout">checkout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Add to cart bar end-->
+
+<!--Newsletter modal popup start-->
+<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="news-latter">
+                    <div class="modal-bg">
+                        <div class="offer-content vagi-offer-contant">
+                            <div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h2>newsletter</h2>
+                                <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
+                                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                    <div class="form-group mx-sm-3">
+                                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
+                                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--Newsletter Modal popup end-->
 
 <!-- Quick-view modal popup start-->
 <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1273,11 +1391,11 @@ include('connect_db.php');
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="row">
                     <div class="col-lg-6 col-xs-12">
-                        <div class="quick-view-img"><img src="../assets/images/quick-view.jpg" alt="" class="img-fluid "></div>
+                        <div class="quick-view-img"><img src="../assets/images/layout-6/product/a6.jpg" alt="quick" class="img-fluid "></div>
                     </div>
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
-                            <h2><?php echo $product_name?></h2>
+                            <h2>Pear - Green/Naspatit</h2>
                             <h3>$32.96</h3>
                             <ul class="color-variant">
                                 <li class="bg-light0"></li>
@@ -1313,95 +1431,6 @@ include('connect_db.php');
 </div>
 <!-- Quick-view modal popup end-->
 
-<!-- Add to cart bar -->
-<div id="cart_side" class=" add_to_cart right">
-    <a href="javascript:void(0)" class="overlay" onclick="closeCart()"></a>
-    <div class="cart-inner">
-        <div class="cart_top">
-            <h3>my cart</h3>
-            <div class="close-cart">
-                <a href="javascript:void(0)" onclick="closeCart()">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-        <div class="cart_media">
-            <ul class="cart_product">
-                <li>
-                    <div class="media">
-                        <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/1.jpg">
-                        </a>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>item name</h4>
-                            </a>
-                            <h4>
-                                <span>1 x $ 299.00</span>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="close-circle">
-                        <a href="#">
-                            <i class="ti-trash" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="media">
-                        <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/2.jpg">
-                        </a>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>item name</h4>
-                            </a>
-                            <h4>
-                                <span>1 x $ 299.00</span>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="close-circle">
-                        <a href="#">
-                            <i class="ti-trash" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="media">
-                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-4/product/3.jpg"></a>
-                        <div class="media-body">
-                            <a href="#">
-                                <h4>item name</h4>
-                            </a>
-                            <h4><span>1 x $ 299.00</span></h4>
-                        </div>
-                    </div>
-                    <div class="close-circle">
-                        <a href="#">
-                            <i class="ti-trash" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="cart_total">
-                <li>
-                    <div class="total">
-                        <h5>subtotal : <span>$299.00</span></h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="buttons">
-                        <a href="cart.html" class="btn btn-normal btn-xs view-cart">view cart</a>
-                        <a href="#" class="btn btn-normal btn-xs checkout">checkout</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Add to cart bar end-->
-
 <!-- My account bar start-->
 <div id="myAccount" class="add_to_cart right account-bar">
     <a href="javascript:void(0)" class="overlay" onclick="closeAccount()"></a>
@@ -1417,11 +1446,11 @@ include('connect_db.php');
         <form class="theme-form">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control"  placeholder="Email" required="">
+                <input type="text" class="form-control" id="email" placeholder="Email" required="">
             </div>
             <div class="form-group">
                 <label for="review">Password</label>
-                <input type="password" class="form-control"  placeholder="Enter your password" required="">
+                <input type="password" class="form-control" id="review" placeholder="Enter your password" required="">
             </div>
             <div class="form-group">
                 <a href="#" class="btn btn-rounded btn-block ">Login</a>
@@ -1565,26 +1594,42 @@ include('connect_db.php');
 </div>
 <!-- Add to setting bar end-->
 
+ <!-- notification product -->
+  <div class="product-notification" id="dismiss">
+    <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
+    <div class="media">
+      <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">Latest trending</h5>
+        Cras sit amet nibh libero, in gravida nulla.
+      </div>
+    </div>
+  </div>
+  <!-- notification product -->
+
+
 <!-- latest jquery-->
 <script src="../assets/js/jquery-3.3.1.min.js"></script>
-
-<!-- slick js-->
-<script src="../assets/js/slick.js"></script>
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
 <!-- Bootstrap js-->
 <script src="../assets/js/bootstrap.js"></script>
-<script src="../assets/js/jquery.elevatezoom.js"></script>
 
-<!-- elevatezoom js-->
-<script src="../assets/js/jquery.elevatezoom.js"></script>
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap-notify.min.js"></script>
 
-<!-- menu js-->
+<!-- Timer js-->
 <script src="../assets/js/menu.js"></script>
 
+<!-- slick js-->
+<script src="../assets/js/slick.js"></script>
+
 <!-- Theme js-->
+<script src="../assets/js/modal.js"></script>
+<script src="../assets/js/slider-animat-one.js"></script>
 <script src="../assets/js/script.js"></script>
 </body>
 </html>
+

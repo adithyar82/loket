@@ -46,42 +46,42 @@ include('connect_db.php');
 
 <!--header start-->
 <header>
-    <div class="mobile-fix-option"></div>
+    <!-- <div class="mobile-fix-option"></div>
     <div class="top-header">
         <div class="custom-container">
             <div class="row">
                 <div class="col-xl-5 col-md-7 col-sm-6">
                     <div class="top-header-left">
-                        <div class="shpping-order">
+                        <div class="shpping-order"> -->
                             <!-- <h6>free shipping on order over $99 </h6> -->
-                        </div>
+                        <!-- </div>
                         <div class="app-link">
-                            <h6>
+                            <h6> -->
                                 <!-- Download aap -->
-                            </h6>
-                            <ul>
+                            <!-- </h6>
+                            <ul> -->
                                 <!-- <li><a><i class="fa fa-apple" ></i></a></li>
                                 <li><a><i class="fa fa-android" ></i></a></li>
                                 <li><a><i class="fa fa-windows" ></i></a></li> -->
-                            </ul>
+                            <!-- </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-md-5 col-sm-6">
                     <div class="top-header-right">
                         <div class="top-menu-block">
-                            <ul>
+                            <ul> -->
                                 <!-- <li><a href="#">gift cards</a></li>
                                 <li><a href="#">Notifications</a></li> -->
-                                <li><a href="#">help & contact</a></li>
+                                <!-- <li><a href="#">help & contact</a></li> -->
                                 <!-- <li><a href="#">todays deal</a></li>
                                 <li><a href="#">track order</a></li>
                                 <li><a href="#">shipping </a></li>
                                 <li><a href="#">easy returns</a></li> -->
-                            </ul>
+                            <!-- </ul>
                         </div>
                         <div class="language-block">
-                            <div class="language-dropdown">
+                            <div class="language-dropdown"> -->
                   <!-- <span  class="language-dropdown-click">
                     english <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span> -->
@@ -91,8 +91,8 @@ include('connect_db.php');
                                     <li><a href="#">marathi</a></li>
                                     <li><a href="#">spanish</a></li>
                                 </ul> -->
-                            </div>
-                            <div class="curroncy-dropdown">
+                            <!-- </div>
+                            <div class="curroncy-dropdown"> -->
                   <!-- <span class="curroncy-dropdown-click">
                     usd<i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span> -->
@@ -101,19 +101,19 @@ include('connect_db.php');
                                     <li><a href="#"><i class="fa fa-usd"></i>usd</a></li>
                                     <li><a href="#"><i class="fa fa-eur"></i>eur</a></li>
                                 </ul> -->
-                            </div>
+                            <!-- </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="layout-header2">
         <div class="container">
             <div class="col-md-12">
                 <div class="main-menu-block">
-                    <div class="sm-nav-block">
-                        <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
+                    <!-- <div class="sm-nav-block">
+                        <span class="sm-nav-btn"><i class="fa fa-bars"></i></span> -->
                         <!-- <ul class="nav-slide">
                             <li>
                                 <div class="nav-sm-back">
@@ -148,9 +148,9 @@ include('connect_db.php');
                                 </a>
                             </li>
                         </ul> -->
-                    </div>
+                    <!-- </div> -->
                     <div class="logo-block">
-                        <a href="index.html"><img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo"></a>
+                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                     </div>
                     
                     <div class="cart-block cart-hover-div " onclick="openCart()">
@@ -168,7 +168,7 @@ include('connect_db.php');
                             <!-- <h5>shopping</h5>
                             <h5>cart</h5> -->
                         </div>
-                    </div>
+                    <!-- </div>
                     <div class="menu-nav">
               <span class="toggle-nav">
                 <i class="fa fa-bars "></i>
@@ -177,13 +177,13 @@ include('connect_db.php');
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
 </header>
 <!--header end-->
 
 <!-- breadcrumb start -->
-<div class="breadcrumb-main ">
+<!-- <div class="breadcrumb-main ">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -191,16 +191,16 @@ include('connect_db.php');
                     <div>
                         <h2 style="color:#0A99F3"><strong>register</strong></h2>
                         <ul>
-                            <!-- <li><a href="#">home</a></li>
+                            <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">register</a></li> -->
+                            <li><a href="#">register</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- breadcrumb End -->
 
 <!--section start-->
@@ -234,11 +234,11 @@ include('connect_db.php');
                                 <label for="review">Password</label>
                                 <input type="password" name = "pwd" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" name = "password" class="form-control" id="review" placeholder="Enter your password" required="">
                             </div>
-                            <div class="col-md-12 form-group"><input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span>Submit</span></a></div>
+                            <div class="col-md-12 form-group"><input type = "submit" name = "submit" class="view-btn color-2 w-100 mt-20"><span></span></a></div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-12 ">
-                                <p >Have you already account? <a href="login.php" class="txt-default">click</a> here to &nbsp;<a href="login.php" class="txt-default">Login</a></p>
+                                <p >Have you already account? <a href="login.php" class="txt-default"></a>click here to &nbsp;<a href="login.php" class="txt-default">Login</a></p>
                             </div>
                         </div>
                     </form>
@@ -256,14 +256,14 @@ include('connect_db.php');
         <div class="row">
             <div class="col-12">
                 <div class="footer-main-contian">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 pr-lg-0">
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
                                 </div>
                                 <div class="footer-detail">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                                    <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
                                     <ul class="paymant-bottom">
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
@@ -274,20 +274,20 @@ include('connect_db.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 p-l-md-0">
+                        <div class="col-lg-8 col-md-12 ">
                             <div class="footer-right">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <div class="col-md-5 pr-lg-0">
+                                                <!-- <div class="col-md-5 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            
+                                                            <h4>subscribe to newsletter</h4>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-7 p-l-md-0">
+                                                </div> -->
+                                                <!-- <div class="col-md-7 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -301,7 +301,7 @@ include('connect_db.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -347,10 +347,10 @@ include('connect_db.php');
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
-                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
-                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
+                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
+                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us:<br> contact.azeempatel@gmail.com</span></li>
+                                                                
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -399,7 +399,7 @@ include('connect_db.php');
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
+                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
                     </div>
                 </div>
             </div>
@@ -408,10 +408,11 @@ include('connect_db.php');
 </footer>
 <!--footer end-->
 
+
 <!-- tap to top -->
-<div class="tap-top">
+<div class="tap-top bg-white">
     <div>
-        <i class="fa fa-angle-double-up"></i>
+        <img src="../assets/images/icon/tap-top.png" class="img-fluid" alt="tap top"/>
     </div>
 </div>
 <!-- tap to top End -->
@@ -433,7 +434,7 @@ include('connect_db.php');
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/1.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/2.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -453,7 +454,7 @@ include('connect_db.php');
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/2.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/5.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -472,7 +473,7 @@ include('connect_db.php');
                 </li>
                 <li>
                     <div class="media">
-                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-4/product/3.jpg"></a>
+                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-6/product/1.jpg"></a>
                         <div class="media-body">
                             <a href="#">
                                 <h4>item name</h4>
@@ -504,6 +505,82 @@ include('connect_db.php');
     </div>
 </div>
 <!-- Add to cart bar end-->
+
+<!--Newsletter modal popup start-->
+<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="news-latter">
+                    <div class="modal-bg">
+                        <div class="offer-content vagi-offer-contant">
+                            <div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h2>newsletter</h2>
+                                <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
+                                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                    <div class="form-group mx-sm-3">
+                                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
+                                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--Newsletter Modal popup end-->
+
+<!-- Quick-view modal popup start-->
+<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content quick-view-modal">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="quick-view-img"><img src="../assets/images/layout-6/product/a6.jpg" alt="quick" class="img-fluid "></div>
+                    </div>
+                    <div class="col-lg-6 rtl-text">
+                        <div class="product-right">
+                            <h2>Pear - Green/Naspatit</h2>
+                            <h3>$32.96</h3>
+                            <ul class="color-variant">
+                                <li class="bg-light0"></li>
+                                <li class="bg-light1"></li>
+                                <li class="bg-light2"></li>
+                            </ul>
+                            <div class="border-product">
+                                <h6 class="product-title">product details</h6>
+                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                            </div>
+                            <div class="product-description border-product">
+                                <div class="size-box">
+                                    <ul>
+                                        <li class="active"><a href="#">s</a></li>
+                                        <li><a href="#">m</a></li>
+                                        <li><a href="#">l</a></li>
+                                        <li><a href="#">xl</a></li>
+                                    </ul>
+                                </div>
+                                <h6 class="product-title">quantity</h6>
+                                <div class="qty-box">
+                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
+                                        <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
+                                </div>
+                            </div>
+                            <div class="product-buttons"><a href="#" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">view detail</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick-view modal popup end-->
 
 <!-- My account bar start-->
 <div id="myAccount" class="add_to_cart right account-bar">
@@ -668,23 +745,42 @@ include('connect_db.php');
 </div>
 <!-- Add to setting bar end-->
 
-<!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+ <!-- notification product -->
+  <div class="product-notification" id="dismiss">
+    <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
+    <div class="media">
+      <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">Latest trending</h5>
+        Cras sit amet nibh libero, in gravida nulla.
+      </div>
+    </div>
+  </div>
+  <!-- notification product -->
 
-<!-- menu js-->
-<script src="../assets/js/menu.js"></script>
+
+<!-- latest jquery-->
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- slick js-->
-<script  src="../assets/js/slick.js"></script>
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap.js"></script>
 
 <!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js" ></script>
+<script src="../assets/js/bootstrap-notify.min.js"></script>
+
+<!-- Timer js-->
+<script src="../assets/js/menu.js"></script>
+
+<!-- slick js-->
+<script src="../assets/js/slick.js"></script>
 
 <!-- Theme js-->
-<script src="../assets/js/script.js" ></script>
-
+<script src="../assets/js/modal.js"></script>
+<script src="../assets/js/slider-animat-one.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>
+

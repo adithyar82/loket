@@ -529,7 +529,7 @@ include('connect_db.php');
                                             while($row=$result_2->fetch_assoc()){
                                                 $category_name = $row['category_name'];
                                                 $category_icon = $row['category_icon'];
-                                                        echo'<li> <img src="'.$category_icon.'" alt="category-product"> <a href="#">'.$category_name.'</a></li>';
+                                                        echo'<li> <img src="'.$category_icon.'" alt="category-product">'.$category_name.' <a href="category_1.php?id='.$category_name.'"</a></li>';
                                             }
                                         }
                                         ?>
@@ -692,7 +692,7 @@ include('connect_db.php');
             </div>
             <div class="col-xl-2 col-sm-3 pl-0 offer-banner">
                 <div class="offer-banner-img">
-                    <img src="../assets/images/layout-6/product/4.jpg" class="img-fluid" alt="product">
+                    <img src="../assets/images/collection/BigDeal_images/255-456/medicine.jpg" class="img-fluid" alt="product">
                 </div>
             </div>
         </div>

@@ -39,7 +39,68 @@ $product_name = $_REQUEST['id'];
     <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
 
     <!-- Theme css -->
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/color2.css" media="screen" id="color">
+
+    <style>
+        #myform {
+            text-align: center;
+            padding: 5px;
+            border: 1px dotted #ccc;
+            margin: 2%;
+        }
+        .qty {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+        }
+        input.qtyplus { width:25px; height:25px;}
+        input.qtyminus { width:25px; height:25px;}
+    
+    </style>
+
+    <script>
+        jQuery(document).ready(function(){
+        // This button will increment the value
+        $('.qtyplus').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                $('input[name='+fieldName+']').val(currentVal + 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+        // This button will decrement the value till 0
+        $(".qtyminus").click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If it isn't undefined or its greater than 0
+            if (!isNaN(currentVal) && currentVal > 0) {
+                // Decrement one
+                $('input[name='+fieldName+']').val(currentVal - 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+    });
+
+    </script>
+
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
 </head>
 <body class="bg-dark">
 
@@ -53,7 +114,11 @@ $product_name = $_REQUEST['id'];
 
 <!--header start-->
 <header>
+
+    <!-- <div class="mobile-fix-option"></div>
+
     <div class="mobile-fix-option"></div>
+
     <div class="top-header">
         <div class="custom-container">
             <div class="row">
@@ -113,13 +178,16 @@ $product_name = $_REQUEST['id'];
                     </div>
                 </div>
             </div>
-        </div>
+      </div>
+    </div> -->
     </div>
     <div class="layout-header2">
         <div class="container">
             <div class="col-md-12">
                 <div class="main-menu-block">
+                    <!-- <div class="sm-nav-block">
                     <div class="sm-nav-block">
+
                         <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
                         <ul class="nav-slide">
                             <li>
@@ -155,11 +223,19 @@ $product_name = $_REQUEST['id'];
                                 </a>
                             </li>
                         </ul>
+
+                    </div> -->
+                    <div class="logo-block">
+                        <a href="index.html"><img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo"></a>
+                    </div>
+                    <!-- <div class="input-block">
+
                     </div>
                     <div class="logo-block">
                         <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                     </div>
                     <div class="input-block">
+
                         <div class="input-box">
                             <form class="big-deal-form">
                                 <div class="input-group ">
@@ -177,8 +253,12 @@ $product_name = $_REQUEST['id'];
                                 </div>
                             </form>
                         </div>
+                    </div> -->
+                    <!-- <div class="cart-block cart-hover-div " onclick="openCart()">
+
                     </div>
                     <div class="cart-block cart-hover-div " onclick="openCart()">
+
                         <div class="cart ">
                             <span class="cart-product">0</span>
                             <ul>
@@ -193,7 +273,10 @@ $product_name = $_REQUEST['id'];
                             <h5>shopping</h5>
                             <h5>cart</h5>
                         </div>
+                    </div> -->
+
                     </div>
+
                     <div class="menu-nav">
               <span class="toggle-nav">
                 <i class="fa fa-bars "></i>
@@ -209,15 +292,24 @@ $product_name = $_REQUEST['id'];
                 <div class="col">
                     <div class="navbar-menu">
                         <div class="category-left">
+
+                            <!-- <div class="nav-block"> -->
+                                <!-- <div class="nav-left" > -->
+                                    <!-- <nav class="navbar" data-toggle="collapse" data-target="#navbarToggleExternalContent">
                             <div class="nav-block">
                                 <div class="nav-left" >
                                     <nav class="navbar" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+
                                         <button class="navbar-toggler" type="button">
                                             <span class="navbar-icon"><i class="fa fa-arrow-down"></i></span>
                                         </button>
                                         <h5 class="mb-0  text-white title-font">Shop by category</h5>
+                                    </nav> -->
+                                    <!-- <div class="collapse  nav-desk" id="navbarToggleExternalContent">
+
                                     </nav>
                                     <div class="collapse  nav-desk" id="navbarToggleExternalContent">
+
                                         <ul class="nav-cat title-font">
                                             <li> <img src="../assets/images/layout-1/nav-img/01.png" alt="category-product"> <a href="#">western ware</a></li>
                                             <li> <img src="../assets/images/layout-1/nav-img/02.png" alt="category-product"> <a href="#">TV, Appliances</a></li>
@@ -244,9 +336,14 @@ $product_name = $_REQUEST['id'];
                                                 <a class="mor-slide-click">mor category <i class="fa fa-angle-down pro-down"></i><i class="fa fa-angle-up pro-up"></i></a>
                                             </li>
                                         </ul>
+                                    </div> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+
                                     </div>
                                 </div>
                             </div>
+
                             <div class="menu-block">
                                 <nav id="main-nav">
                                     <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
@@ -256,20 +353,33 @@ $product_name = $_REQUEST['id'];
                                         </li>
                                         <!--HOME-->
                                         <li>
+
+                                            <a href="category.php" class="dark-menu-item">Home</a>
+                                            <!-- <ul>
+
                                             <a href="#" class="dark-menu-item">Home</a>
                                             <ul>
+
                                                 <li><a target="_blank" href="index.html">layout 1</a></li>
                                                 <li><a target="_blank" href="layout-2.html">layout 2</a></li>
                                                 <li><a target="_blank" href="layout-3.html">layout 3</a></li>
                                                 <li><a target="_blank" href="layout-4.html">layout 4</a></li>
                                                 <li><a target="_blank" href="layout-5.html">layout 5</a></li>
                                                 <li><a target="_blank" href="layout-6.html">layout 6</a></li>
+
+                                            </ul> -->
+
                                             </ul>
+
                                         </li>
                                         <!--HOME-END-->
 
                                         <!--SHOP-->
+
+                                        <!-- <li>
+
                                         <li>
+
                                             <a href="#" class="dark-menu-item">shop</a>
                                             <ul>
                                                 <li><a href="category-page(left-sidebar).html">left sidebar</a></li>
@@ -283,14 +393,23 @@ $product_name = $_REQUEST['id'];
                                                 <li><a href="category-page(6-grid).html">6 grid</a></li>
                                                 <li><a href="category-page(list-view).html">list view</a></li>
                                             </ul>
+
+
                                         </li>
+
                                         <!--SHOP-END-->
 
 
                                         <!--product-meu start-->
+
+                                        <!-- <li class="mega"><a href="#" class="dark-menu-item">product
+                                        </a> -->
+                                            <!-- <ul class="mega-menu full-mega-menu ">
+
                                         <li class="mega"><a href="#" class="dark-menu-item">product
                                         </a>
                                             <ul class="mega-menu full-mega-menu ">
+
                                                 <li>
                                                     <div class="container">
                                                         <div class="row">
@@ -393,12 +512,21 @@ $product_name = $_REQUEST['id'];
                                                         </div>
                                                     </div>
                                                 </li>
+
+                                            </ul> -->
+                                        <!-- </li> -->
+                                        <!--product-meu end-->
+
+                                        <!--mega-meu start-->
+                                        <!-- <li class="mega" >
+
                                             </ul>
                                         </li>
                                         <!--product-meu end-->
 
                                         <!--mega-meu start-->
                                         <li class="mega" >
+
                                             <a href="#" class="dark-menu-item">features</a>
                                             <ul class="mega-menu full-mega-menu ratio_landscape">
                                                 <li>
@@ -487,11 +615,19 @@ $product_name = $_REQUEST['id'];
                                                     </div>
                                                 </li>
                                             </ul>
+
+                                        </li> -->
+                                        <!--mega-meu end-->
+
+                                        <!--pages-meu start-->
+                                        <!-- <li><a href="#" class="dark-menu-item">pages</a>
+
                                         </li>
                                         <!--mega-meu end-->
 
                                         <!--pages-meu start-->
                                         <li><a href="#" class="dark-menu-item">pages</a>
+
                                             <ul>
                                                 <li>
                                                     <a href="#">account</a>
@@ -526,11 +662,19 @@ $product_name = $_REQUEST['id'];
                                                 <li><a href="coming-soon.html">coming soon </a></li>
                                                 <li><a href="faq.html">FAQ</a></li>
                                             </ul>
+
+                                        </li> -->
+                                        <!--product-end end-->
+
+                                        <!--blog-meu start-->
+                                        <!-- <li>
+
                                         </li>
                                         <!--product-end end-->
 
                                         <!--blog-meu start-->
                                         <li>
+
                                             <a href="#" class="dark-menu-item">blog</a>
                                             <ul>
                                                 <li><a href="blog(left-sidebar).html">left sidebar</a></li>
@@ -538,17 +682,30 @@ $product_name = $_REQUEST['id'];
                                                 <li><a href="blog(no-sidebar).html">no sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
+
+                                        </li> -->
+                                        <!--blog-meu end-->
+                                    <!-- </ul> -->
+
                                         </li>
                                         <!--blog-meu end-->
                                     </ul>
+
                                 </nav>
                             </div>
                             <div class="icon-block">
                                 <ul>
+
+                                    <!-- <li class="mobile-user onhover-dropdown"  onclick="openAccount()">
+                                        <a href="#"><i class="icon-user"></i>
+                                        </a>
+                                    </li> -->
+
                                     <li class="mobile-user onhover-dropdown"  onclick="openAccount()">
                                         <a href="#"><i class="icon-user"></i>
                                         </a>
                                     </li>
+
                                     <li class="mobile-wishlist" onclick="openWishlist()">
                                         <a ><i class="icon-heart"></i><div class="cart-item"><div>0 item<span>wishlist</span></div></div></a></li>
                                     <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
@@ -658,7 +815,11 @@ $product_name = $_REQUEST['id'];
                     <div>
                         <h2>cart</h2>
                         <ul>
+
+                            <li><a href="category.php">home</a></li>
+
                             <li><a href="#">home</a></li>
+
                             <li><i class="fa fa-angle-double-right"></i></li>
                             <li><a href="#">cart</a></li>
                         </ul>
@@ -687,6 +848,58 @@ $product_name = $_REQUEST['id'];
                         <th scope="col">total</th>
                     </tr>
                     </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../assets/images/layout-3/product/1.jpg" alt="cart"  class=" "></a>
+                        </td>
+                        <td><a href="#">cotton shirt</a>
+                            <div class="mobile-cart-content row">
+                                <div class="col-xs-3">
+                                    <div class="qty-box">
+                                        <div class="input-group">
+                                        <form id='myform' method='POST' action='#'>
+                                            <input type='button' value='-' class='qtyminus' field='quantity' />
+                                            <input type='text' name='quantity' value='0' class='qty' />
+                                            <input type='button' value='+' class='qtyplus' field='quantity' />
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color">$63.00</h2></div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
+                            </div>
+                        </td>
+                        <td>
+                            <h2>$63.00</h2></td>
+                        <td>
+                            <div class="qty-box">
+                                <div class="input-group">
+                                <form id='myform' method='POST' action='#'>
+                                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                                    <input type='text' name='quantity' value='0' class='qty' />
+                                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                                </form>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                        <td>
+                            <h2 class="td-color">$4539.00</h2></td>
+                    </tr>
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../assets/images/layout-3/product/4.jpg" alt="cart" class=" "></a>
+                        </td>
+                        <td><a href="#">cotton shirt</a>
+                            <div class="mobile-cart-content row">
+                                <div class="col-xs-3">
+
                     <?php
                     $sql = "SELECT * FROM items;";
                     $result = $conn->query($sql);
@@ -727,11 +940,35 @@ $product_name = $_REQUEST['id'];
                                 <td>
                                     <h2>'.$initial_cost.'</h2></td>
                                 <td>
+
                                     <div class="qty-box">
                                         <div class="input-group">
                                             <input type="number" name="quantity" class="form-control input-number" value="1">
                                         </div>
                                     </div>
+
+                                </div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color">$63.00</h2></div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
+                            </div>
+                        </td>
+                        <td>
+                            <h2>$63.00</h2></td>
+                        <td>
+                            <div class="qty-box">
+                                <div class="input-group">
+                                    <input type="number" name="quantity" class="form-control input-number" value="1">
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                        <td>
+                            <h2 class="td-color">$4539.00</h2></td>
+                    </tr>
+                    </tbody>
+
                                 </td>
                                 <td><a href="cart_2.php?id='.$product_name.'" class="icon"><i class="ti-close"></i></a></td>
                                 <td>

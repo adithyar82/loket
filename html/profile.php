@@ -521,7 +521,7 @@
                                         <!--product-end end-->
 
                                         <!--blog-meu start-->
-                                        <li>
+                                        <!-- <li>
                                             <a href="#" class="dark-menu-item">blog</a>
                                             <ul>
                                                 <li><a href="blog(left-sidebar).html">left sidebar</a></li>
@@ -529,7 +529,7 @@
                                                 <li><a href="blog(no-sidebar).html">no sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <!--blog-meu end-->
                                     </ul>
                                 </nav>
@@ -540,7 +540,7 @@
                                         <a href="#"><i class="icon-user"></i>
                                         </a>
                                     </li>
-                                    <li class="mobile-wishlist" onclick="openWishlist()">
+                                    <!-- <li class="mobile-wishlist" onclick="openWishlist()">
                                         <a ><i class="icon-heart"></i><div class="cart-item"><div>0 item<span>wishlist</span></div></div></a></li>
                                     <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
                                         <div class ="search-overlay">
@@ -559,7 +559,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </li>
                                     <li class="mobile-setting mobile-setting-hover" onclick="openSetting()"><a href="#"><i class="icon-settings"></i></a>
                                     </li>

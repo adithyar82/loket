@@ -688,8 +688,15 @@ $product_name = $_REQUEST['id'];
                     </tr>
                     </thead>
                     <?php
-                    $sql = "SELECT * FROM items WHERE item_name = '$product_name';";
+                    $sql = "SELECT * FROM items;";
                     $result = $conn->query($sql);
+                    $sql1 = "SELECT SUM(item_price) as total_cost FROM items;";
+                    $result1 = $conn->query($sql1);
+                    if($result1->num_rows>0){
+                        while($row=$result1->fetch_assoc()){
+                            $total_cost = $row['total_cost'];
+                        }
+                    }
                     if($result->num_rows>=0){
                         while($row=$result->fetch_assoc()){
                             $product_id = $row['id'];
@@ -735,47 +742,14 @@ $product_name = $_REQUEST['id'];
                     }
                     ?>
                     
-                    <tbody>
-                    <tr>
-                        <td>
-                            <a href="#"><img src="../assets/images/layout-3/product/3.jpg" alt="cart" class=" "></a>
-                        </td>
-                        <td><a href="#">cotton shirt</a>
-                            <div class="mobile-cart-content row">
-                                <div class="col-xs-3">
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="number" name="quantity" class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <h2 class="td-color">$63.00</h2></div>
-                                <div class="col-xs-3">
-                                    <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
-                            </div>
-                        </td>
-                        <td>
-                            <h2>$63.00</h2></td>
-                        <td>
-                            <div class="qty-box">
-                                <div class="input-group">
-                                    <input type="number" name="quantity" class="form-control input-number" value="1">
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
-                        <td>
-                            <h2 class="td-color">$4539.00</h2></td>
-                    </tr>
-                    </tbody>
+                   
                 </table>
                 <table class="table cart-table table-responsive-md">
                     <tfoot>
                     <tr>
                         <td>total price :</td>
                         <td>
-                            <h2>$6935.00</h2></td>
+                            <h2>Rs <?php echo $total_cost?></h2></td>
                     </tr>
                     </tfoot>
                 </table>

@@ -111,17 +111,17 @@
 <!--header end-->
 
 <!-- breadcrumb start -->
-<div class="breadcrumb-main " style="background-color:#aee1df;">
+<div class="breadcrumb-main " style="background-color:#1167b1;">
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>faq</h2>
+                        <h2 style="color:white;">faq</h2>
                         <ul>
-                            <li><a href="category.php">home</a></li>
-                            <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">faq</a></li>
+                            <li><a href="category.php" style="color:white;">home</a></li>
+                            <li><i class="fa fa-angle-double-right" style="color:white;"></i></li>
+                            <li><a href="#" style="color:white;">faq</a></li>
                         </ul>
                     </div>
                 </div>

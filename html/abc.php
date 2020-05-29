@@ -1,3 +1,7 @@
+<?php
+include('connect_db.php');
+$product_name = $_REQUEST['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +35,75 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
+    <!--portfolio css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
 
     <!-- Theme css -->
+
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
+    <style>
+        #myform {
+            text-align: center;
+            padding: 5px;
+            border: 1px dotted #ccc;
+            margin: 2%;
+        }
+        .qty {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+        }
+        input.qtyplus { width:25px; height:25px;}
+        input.qtyminus { width:25px; height:25px;}
+    
+    </style>
+
+    <script>
+        jQuery(document).ready(function(){
+        // This button will increment the value
+        $('.qtyplus').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                $('input[name='+fieldName+']').val(currentVal + 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+        // This button will decrement the value till 0
+        $(".qtyminus").click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name='+fieldName+']').val());
+            // If it isn't undefined or its greater than 0
+            if (!isNaN(currentVal) && currentVal > 0) {
+                // Decrement one
+                $('input[name='+fieldName+']').val(currentVal - 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name='+fieldName+']').val(0);
+            }
+        });
+    });
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
 </head>
-<body>
+<body class="bg-dark">
+
 <!-- loader start -->
 <div class="loader-wrapper">
     <div>
@@ -46,7 +114,11 @@
 
 <!--header start-->
 <header>
+
     <!-- <div class="mobile-fix-option"></div>
+
+    <div class="mobile-fix-option"></div>
+
     <div class="top-header">
         <div class="custom-container">
             <div class="row">
@@ -106,13 +178,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>-->
+      </div>
+    </div> -->
+    </div>
     <div class="layout-header2">
         <div class="container">
             <div class="col-md-12">
                 <div class="main-menu-block">
                     <!-- <div class="sm-nav-block">
+                    <div class="sm-nav-block">
+
                         <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
                         <ul class="nav-slide">
                             <li>
@@ -148,11 +223,19 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>  -->
+
+                    </div> -->
+                    <div class="logo-block">
+                        <a href="index.html"><img src="../assets/images/layout-2/logo/logo.png" class="img-fluid  " alt="logo"></a>
+                    </div>
+                    <!-- <div class="input-block">
+
+                    </div>
                     <div class="logo-block">
                         <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                     </div>
-                    <!-- <div class="input-block">
+                    <div class="input-block">
+
                         <div class="input-box">
                             <form class="big-deal-form">
                                 <div class="input-group ">
@@ -172,6 +255,10 @@
                         </div>
                     </div> -->
                     <!-- <div class="cart-block cart-hover-div " onclick="openCart()">
+
+                    </div>
+                    <div class="cart-block cart-hover-div " onclick="openCart()">
+
                         <div class="cart ">
                             <span class="cart-product">0</span>
                             <ul>
@@ -185,8 +272,11 @@
                         <div class="cart-item">
                             <h5>shopping</h5>
                             <h5>cart</h5>
-                        </div> -->
-                    <!-- </div>
+                        </div>
+                    </div> -->
+
+                    </div>
+
                     <div class="menu-nav">
               <span class="toggle-nav">
                 <i class="fa fa-bars "></i>
@@ -195,22 +285,31 @@
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- <div class="category-header-2">
+    </div>
+    <div class="category-header-2">
         <div class="custom-container">
             <div class="row">
                 <div class="col">
                     <div class="navbar-menu">
-                        <div class="category-left"> -->
-                            <!-- <div class="nav-block">
-                                <div class="nav-left" > -->
+                        <div class="category-left">
+
+                            <!-- <div class="nav-block"> -->
+                                <!-- <div class="nav-left" > -->
                                     <!-- <nav class="navbar" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+                            <div class="nav-block">
+                                <div class="nav-left" >
+                                    <nav class="navbar" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+
                                         <button class="navbar-toggler" type="button">
                                             <span class="navbar-icon"><i class="fa fa-arrow-down"></i></span>
                                         </button>
                                         <h5 class="mb-0  text-white title-font">Shop by category</h5>
+                                    </nav> -->
+                                    <!-- <div class="collapse  nav-desk" id="navbarToggleExternalContent">
+
                                     </nav>
                                     <div class="collapse  nav-desk" id="navbarToggleExternalContent">
+
                                         <ul class="nav-cat title-font">
                                             <li> <img src="../assets/images/layout-1/nav-img/01.png" alt="category-product"> <a href="#">western ware</a></li>
                                             <li> <img src="../assets/images/layout-1/nav-img/02.png" alt="category-product"> <a href="#">TV, Appliances</a></li>
@@ -238,31 +337,49 @@
                                             </li>
                                         </ul>
                                     </div> -->
-                                <!-- </div>
-                            </div> -->
-                            <!-- <div class="menu-block">
+                                <!-- </div> -->
+                            <!-- </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-block">
                                 <nav id="main-nav">
                                     <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                                         <li>
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                                         </li>
-                                        HOME
+                                        <!--HOME-->
                                         <li>
+
+                                            <a href="category.php" class="dark-menu-item">Home</a>
+                                            <!-- <ul>
+
                                             <a href="#" class="dark-menu-item">Home</a>
                                             <ul>
+
                                                 <li><a target="_blank" href="index.html">layout 1</a></li>
                                                 <li><a target="_blank" href="layout-2.html">layout 2</a></li>
                                                 <li><a target="_blank" href="layout-3.html">layout 3</a></li>
                                                 <li><a target="_blank" href="layout-4.html">layout 4</a></li>
                                                 <li><a target="_blank" href="layout-5.html">layout 5</a></li>
                                                 <li><a target="_blank" href="layout-6.html">layout 6</a></li>
+
+                                            </ul> -->
+
                                             </ul>
-                                        </li> -->
+
+                                        </li>
                                         <!--HOME-END-->
 
                                         <!--SHOP-->
+
                                         <!-- <li>
+
+                                        <li>
+
                                             <a href="#" class="dark-menu-item">shop</a>
                                             <ul>
                                                 <li><a href="category-page(left-sidebar).html">left sidebar</a></li>
@@ -276,14 +393,23 @@
                                                 <li><a href="category-page(6-grid).html">6 grid</a></li>
                                                 <li><a href="category-page(list-view).html">list view</a></li>
                                             </ul>
-                                        </li> -->
+
+
+                                        </li>
+
                                         <!--SHOP-END-->
 
 
                                         <!--product-meu start-->
+
                                         <!-- <li class="mega"><a href="#" class="dark-menu-item">product
+                                        </a> -->
+                                            <!-- <ul class="mega-menu full-mega-menu ">
+
+                                        <li class="mega"><a href="#" class="dark-menu-item">product
                                         </a>
                                             <ul class="mega-menu full-mega-menu ">
+
                                                 <li>
                                                     <div class="container">
                                                         <div class="row">
@@ -386,12 +512,21 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </ul>
-                                        </li> -->
+
+                                            </ul> -->
+                                        <!-- </li> -->
                                         <!--product-meu end-->
 
                                         <!--mega-meu start-->
                                         <!-- <li class="mega" >
+
+                                            </ul>
+                                        </li>
+                                        <!--product-meu end-->
+
+                                        <!--mega-meu start-->
+                                        <li class="mega" >
+
                                             <a href="#" class="dark-menu-item">features</a>
                                             <ul class="mega-menu full-mega-menu ratio_landscape">
                                                 <li>
@@ -480,11 +615,19 @@
                                                     </div>
                                                 </li>
                                             </ul>
+
                                         </li> -->
                                         <!--mega-meu end-->
 
                                         <!--pages-meu start-->
                                         <!-- <li><a href="#" class="dark-menu-item">pages</a>
+
+                                        </li>
+                                        <!--mega-meu end-->
+
+                                        <!--pages-meu start-->
+                                        <li><a href="#" class="dark-menu-item">pages</a>
+
                                             <ul>
                                                 <li>
                                                     <a href="#">account</a>
@@ -519,11 +662,19 @@
                                                 <li><a href="coming-soon.html">coming soon </a></li>
                                                 <li><a href="faq.html">FAQ</a></li>
                                             </ul>
+
                                         </li> -->
                                         <!--product-end end-->
 
                                         <!--blog-meu start-->
                                         <!-- <li>
+
+                                        </li>
+                                        <!--product-end end-->
+
+                                        <!--blog-meu start-->
+                                        <li>
+
                                             <a href="#" class="dark-menu-item">blog</a>
                                             <ul>
                                                 <li><a href="blog(left-sidebar).html">left sidebar</a></li>
@@ -531,17 +682,30 @@
                                                 <li><a href="blog(no-sidebar).html">no sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
+
                                         </li> -->
                                         <!--blog-meu end-->
-                                    <!-- </ul>
+                                    <!-- </ul> -->
+
+                                        </li>
+                                        <!--blog-meu end-->
+                                    </ul>
+
                                 </nav>
                             </div>
                             <div class="icon-block">
                                 <ul>
+
+                                    <!-- <li class="mobile-user onhover-dropdown"  onclick="openAccount()">
+                                        <a href="#"><i class="icon-user"></i>
+                                        </a>
+                                    </li> -->
+
                                     <li class="mobile-user onhover-dropdown"  onclick="openAccount()">
                                         <a href="#"><i class="icon-user"></i>
                                         </a>
                                     </li>
+
                                     <li class="mobile-wishlist" onclick="openWishlist()">
                                         <a ><i class="icon-heart"></i><div class="cart-item"><div>0 item<span>wishlist</span></div></div></a></li>
                                     <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
@@ -633,64 +797,151 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-                    <!-- </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </header>
 <!--header end-->
 
 <!-- breadcrumb start -->
-<!-- <div class="breadcrumb-main" style="background-color:#ffaa1d;">
+<div class="breadcrumb-main ">
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>login</h2>
+                        <h2>cart</h2>
                         <ul>
+
+                            <li><a href="category.php">home</a></li>
+
                             <li><a href="#">home</a></li>
+
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">login</a></li>
+                            <li><a href="#">cart</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- breadcrumb End -->
 
+
 <!--section start-->
-<section class="login-page section-big-py-space bg-light">
+<section class="cart-section section-big-py-space bg-light">
     <div class="custom-container">
         <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-lg-3 offset-md-2">
-                <div class="theme-card">
-                    <h3 class="text-center">Login</h3>
-                    <form method = "POST" action = "login_1.php">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name = "email_address" id="email" placeholder="Email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="review">Password</label>
-                            <input type="password" class="form-control" id="review" name = "pwd" placeholder="Enter your password" required="">
-                        </div>
-                        <input type = "submit" name = "submit">
-                        <a class="float-right txt-default mt-2" href="forgot_password.php" id="fgpwd">Forgot your password?</a>
-                    </form>
-                    <p class="mt-3">Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                    <a href="register.html" class="txt-default pt-3 d-block">Create an Account</a>
-                </div>
-                </form>
+            <div class="col-sm-12">
+                <table class="table cart-table table-responsive-xs">
+                    <thead>
+                    <tr class="table-head">
+                        <th scope="col">image</th>
+                        <th scope="col">product name</th>
+                        <th scope="col">price</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col">action</th>
+                        <th scope="col">total</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        
+                            <div class="mobile-cart-content row">
+                                <div class="col-xs-3">
+
+                    <?php
+                    $sql = "SELECT * FROM items";
+                    $result = $conn->query($sql);
+                    $sql1 = "SELECT SUM(item_price) as total_price FROM items;";
+                    $result1 = $conn->query($sql1);
+                    if($result1->num_rows>0){
+                        while($row=$result1->fetch_assoc()){
+                            $total_price = $row['total_price'];
+                        }
+                    }
+                    if($result->num_rows>=0){
+                        while($row=$result->fetch_assoc()){
+                            $product_id = $row['id'];
+                            $item_name = $row['item_name'];
+                            $item_price = $row['item_price'];
+                            $initial_cost = $row['item_price'];
+                            $product_image = $row['product_image'];
+                            echo'<tbody>
+                            <tr>
+                                <td>
+                                    <a href="#"><img src="'.$product_image.'" alt="cart"  class=" "></a>
+                                </td>
+                                <td><a href="#">'.$item_name.'</a>
+                                    <div class="mobile-cart-content row">
+                                        <div class="col-xs-3">
+                                            <div class="qty-box">
+                                                <div class="input-group">
+                                                    <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <h2 class="td-color">'.$initial_cost.'</h2></div>
+                                        <div class="col-xs-3">
+                                            <h2 class="td-color"><a href="cart_2.php?id='.$product_name.'" class="icon"><i class="ti-close"></i></a></h2></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h2>'.$initial_cost.'</h2></td>
+                                <td>
+
+                                    <div class="qty-box">
+                                        <div class="input-group">
+                                            <input type="number" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                        </td>
+                       
+                        
+                        <td><a href="#" class="icon"><i class="ti-close"></i></a></td>
+                        <td>
+                            <h2 class="td-color">Rs '.$item_price.'</h2></td>
+                    </tr>
+                    </tbody>
+
+                                
+                                
+                                
+                            </tr>
+                            </tbody>';
+                        }
+                    }
+                    ?>
+                    
+
+                    
+                </table>
+                <table class="table cart-table table-responsive-md">
+                    <tfoot>
+                    <tr>
+                        <td>total price :</td>
+                        <td>
+                            <h2><?php echo $total_price?></h2></td>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
+        </div>
+        <div class="row cart-buttons">
+            <div class="col-12"><a href="#" class="btn btn-normal">continue shopping</a> <a href="#" class="btn btn-normal ml-3">check out</a></div>
         </div>
     </div>
 </section>
-<!--Section ends-->
+<!--section end-->
 
 
 <!--footer start-->
@@ -699,14 +950,14 @@
         <div class="row">
             <div class="col-12">
                 <div class="footer-main-contian">
-                    <div class="row ">
-                        <div class="col-lg-4 col-md-12 ">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
                                     <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
                                 </div>
                                 <div class="footer-detail">
-                                    <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
                                     <ul class="paymant-bottom">
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
@@ -717,20 +968,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 ">
+                        <div class="col-lg-8 col-md-12 p-l-md-0">
                             <div class="footer-right">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <!-- <div class="col-md-5 ">
+                                                <div class="col-md-5 pr-lg-0">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            <h4>subscribe to newsletter</h4>
+                                                            
                                                         </div>
                                                     </div>
-                                                </div> -->
-                                                <!-- <div class="col-md-7 ">
+                                                </div>
+                                                <div class="col-md-7 p-l-md-0">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -744,7 +995,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -790,10 +1041,10 @@
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
-                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us:<br> contact.azeempatel@gmail.com</span></li>
-                                                                
+                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
+                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
+                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -842,7 +1093,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
+                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
                     </div>
                 </div>
             </div>
@@ -851,11 +1102,10 @@
 </footer>
 <!--footer end-->
 
-
 <!-- tap to top -->
-<div class="tap-top bg-white">
+<div class="tap-top">
     <div>
-        <img src="../assets/images/icon/tap-top.png" class="img-fluid" alt="tap top"/>
+        <i class="fa fa-angle-double-up"></i>
     </div>
 </div>
 <!-- tap to top End -->
@@ -877,7 +1127,7 @@
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/2.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/1.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -897,7 +1147,7 @@
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/5.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/2.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -916,7 +1166,7 @@
                 </li>
                 <li>
                     <div class="media">
-                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-6/product/1.jpg"></a>
+                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-4/product/3.jpg"></a>
                         <div class="media-body">
                             <a href="#">
                                 <h4>item name</h4>
@@ -948,82 +1198,6 @@
     </div>
 </div>
 <!-- Add to cart bar end-->
-
-<!--Newsletter modal popup start-->
-<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="news-latter">
-                    <div class="modal-bg">
-                        <div class="offer-content vagi-offer-contant">
-                            <div>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <h2>newsletter</h2>
-                                <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
-                                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                                    <div class="form-group mx-sm-3">
-                                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
-                                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!--Newsletter Modal popup end-->
-
-<!-- Quick-view modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content quick-view-modal">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-12">
-                        <div class="quick-view-img"><img src="../assets/images/layout-6/product/a6.jpg" alt="quick" class="img-fluid "></div>
-                    </div>
-                    <div class="col-lg-6 rtl-text">
-                        <div class="product-right">
-                            <h2>Pear - Green/Naspatit</h2>
-                            <h3>$32.96</h3>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                            <div class="border-product">
-                                <h6 class="product-title">product details</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                            </div>
-                            <div class="product-description border-product">
-                                <div class="size-box">
-                                    <ul>
-                                        <li class="active"><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">xl</a></li>
-                                    </ul>
-                                </div>
-                                <h6 class="product-title">quantity</h6>
-                                <div class="qty-box">
-                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
-                                        <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
-                                </div>
-                            </div>
-                            <div class="product-buttons"><a href="#" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">view detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick-view modal popup end-->
 
 <!-- My account bar start-->
 <div id="myAccount" class="add_to_cart right account-bar">
@@ -1188,41 +1362,28 @@
 </div>
 <!-- Add to setting bar end-->
 
- <!-- notification product -->
-  <div class="product-notification" id="dismiss">
-    <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
-    <div class="media">
-      <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">Latest trending</h5>
-        Cras sit amet nibh libero, in gravida nulla.
-      </div>
-    </div>
-  </div>
-  <!-- notification product -->
-
 
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+
+<!-- menu js-->
+<script src="../assets/js/menu.js"></script>
+
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js"></script>
+<!-- slick js-->
+<script  src="../assets/js/slick.js"></script>
 
 <!-- Bootstrap js-->
+<script src="../assets/js/bootstrap.js" ></script>
+
+<!-- Bootstrap Notification js-->
 <script src="../assets/js/bootstrap-notify.min.js"></script>
 
-<!-- Timer js-->
-<script src="../assets/js/menu.js"></script>
-
-<!-- slick js-->
-<script src="../assets/js/slick.js"></script>
-
 <!-- Theme js-->
-<script src="../assets/js/modal.js"></script>
-<script src="../assets/js/slider-animat-one.js"></script>
-<script src="../assets/js/script.js"></script>
+<script src="../assets/js/script.js" ></script>
+
 </body>
 </html>

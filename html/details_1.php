@@ -889,7 +889,8 @@ include('connect_db.php');
                                                 <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
                                         </div>
                                     </div>
-                                    <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a></div>
+                                    <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a><a href="favourite_1.php?id='$product_name'" class="btn btn-normal">add to wishlist</a></div>
+                                     
                                     <div class="border-product">
                                         <h6 class="product-title">product details</h6>
                                         <p>Details DetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetailsDetails</p>
@@ -1080,8 +1081,8 @@ include('connect_db.php');
                                         </a></span></span>
                                         </div>
                                         <div class="addtocart_btn">
-                                            <button class="add-button" title="Buy Now" style = "background-color:#ffaa1d">
-                                                Buy Now
+                                            <button class="add-button" title="" style = "background-color:#ffaa1d">
+                                                
                                             </button>
                                         </div>
                                         <div class="">

@@ -1046,7 +1046,7 @@ include('connect_db.php');
                                 </ul>
                                 <a href = "details_1.php"><h6>'.$product_name.'</h6></a>
                                 <span class="detail-price">'.$initial_cost.'<span>'.$final_cost.' &emsp; &emsp; &emsp;<a href="javascript:void(0)" title="Add to Wishlist" style="color:blue">
-                                <i class="ti-heart" aria-hidden="true"  ></i>
+                                <a href = "favourite_1.php?id='.$product_name.'><i class="ti-heart" aria-hidden="true"  ></i></a>
                             </a></span></span>
                             </div>
                             <div class="addtocart_btn">
@@ -1347,8 +1347,11 @@ include('connect_db.php');
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
                                             <a href = "details_1.php?id='.$product_name.'"><h6>'.$product_name.'</h6></a>
+                                            
                                             <span class="detail-price">Rs '.$final_cost.'<span>Rs '.$initial_cost.'
-                                            </span></span>
+                                            <a href="favourite_1.php?id='.$product_name.'" title="Add to Wishlist">
+                                            <i class="ti-heart" aria-hidden="true"></i>
+                                            </a></span></span>
                                         </div>
                                         <div class="addtocart_btn">
                                             <button class="add-button" title="Buy Now" style = "background-color:#ffaa1d">

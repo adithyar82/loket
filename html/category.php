@@ -3576,9 +3576,9 @@ include('connect_db.php');
 
 
 <!-- tap to top -->
-<div class="tap-top bg-white">
+<div class="tap-top">
     <div>
-        <img src="../assets/images/icon/tap-top.png" class="img-fluid" alt="tap top"/>
+        <i class="fa fa-angle-double-up"></i>
     </div>
 </div>
 <!-- tap to top End -->

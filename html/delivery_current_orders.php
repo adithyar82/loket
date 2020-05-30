@@ -1,7 +1,3 @@
-<?php
-$sub_category_name = $_REQUEST['id1'];
-include('connect_db.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +32,7 @@ include('connect_db.php');
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
 </head>
-<body>
+<body class="bg-light">
 
 <!-- loader start -->
 <div class="loader-wrapper">
@@ -651,11 +647,11 @@ include('connect_db.php');
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2><?php echo $sub_category_name?></h2>
+                        <h2>Current Orders</h2>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#"><?php echo $sub_category_name?></a></li>
+                            <li><a href="#">Current Orders</a></li>
                         </ul>
                     </div>
                 </div>
@@ -666,135 +662,141 @@ include('connect_db.php');
 <!-- breadcrumb End -->
 
 <!-- section start -->
-<section class="section-big-pt-space ratio_asos bg-light">
-    <div class="collection-wrapper">
-        <div class="custom-container">
-            <div class="row">
-                <div class="collection-content col">
-                    <div class="page-main-content">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div class="top-banner-wrapper">
-                                    <a href="#"><img src="../assets/images/category/1.jpg" class="img-fluid  w-100" alt=""></a>
-                                    <div class="top-banner-content small-section">
-                                        <h4>fashion</h4>
-                                        <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h5>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
-                                </div> -->
-                                <div class="collection-product-wrapper">
-                                    <div class="product-top-filter">
-                                        <div class="container-fluid p-0">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="product-filter-content">
-                                                        <div class="search-count">
-                                                            <h5>Showing Products 1-24 of 10 Result</h5></div>
-                                                        <div class="collection-view">
-                                                            <ul>
-                                                                <li><i class="fa fa-th grid-layout-view"></i></li>
-                                                                <li><i class="fa fa-list-ul list-layout-view"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="collection-grid-view">
-                                                            <ul>
-                                                                <li><img src="../assets/images/category/icon/2.png" alt="" class="product-2-layout-view"></li>
-                                                                <li><img src="../assets/images/category/icon/3.png" alt="" class="product-3-layout-view"></li>
-                                                                <li><img src="../assets/images/category/icon/4.png" alt="" class="product-4-layout-view"></li>
-                                                                <li><img src="../assets/images/category/icon/6.png" alt="" class="product-6-layout-view"></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="product-page-per-view">
-                                                            <select>
-                                                                <option value="High to low">24 Products Par Page</option>
-                                                                <option value="Low to High">50 Products Par Page</option>
-                                                                <option value="Low to High">100 Products Par Page</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="product-page-filter">
-                                                            <select>
-                                                                <option value="High to low">Sorting items</option>
-                                                                <option value="Low to High">50 Products</option>
-                                                                <option value="Low to High">100 Products</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-wrapper-grid">
-                                        <div class="row">
-                                            <?php 
-                                            $sql = "SELECT * FROM products WHERE sub_category_name = '$sub_category_name';";
-                                            $result = $conn->query($sql);
-                                            if($result->num_rows>0){
-                                                while($row=$result->fetch_assoc()){
-                                                    $product_name = $row['product_name'];
-                                                    $product_image = $row['product_image'];
-                                                    $final_cost = $row['final_cost'];
-                                                    $initial_cost = $row['initial_cost'];
-                                                    echo '<div class="col-xl-2 col-lg-3 col-md-4 col-6 col-grid-box">
-                                                    <div class="product">
-                                                        <div class="product-box">
-                                                            <div class="product-imgbox">
-                                                                <div class="product-front">
-                                                                    <img src="'.$product_image.'" class="img-fluid  " alt="product">
-                                                                </div>
-                                                                <div class="product-back">
-                                                                    <img src="../assets/images/layout-1/product/a1.jpg" class="img-fluid  " alt="product">
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-detail detail-center ">
-                                                                <div class="detail-title">
-                                                                    <div class="detail-left">
-                                                                        <div class="rating-star">
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                        </div>
-                                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                                                                        <a href="">
-                                                                            <h6 class="price-title">
-                                                                                reader will be distracted.
-                                                                            </h6>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="detail-right">
-                                                                        <div class="check-price">
-                                                                            Rs '.$final_cost.'
-                                                                        </div>
-                                                                        <div class="price">
-                                                                            <div class="price">
-                                                                               Rs '.$final_cost.'
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="icon-detail">
-                                                                    <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
-                                                                        <i class="ti-bag" ></i>
-                                                                    </button>
-                                                                    <a href="javascript:void(0)" title="Add to Wishlist">
-                                                                        <i class="ti-heart" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                                                        <i class="ti-search" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="compare.html" title="Compare">
-                                                                        <i class="fa fa-exchange" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>';
-                                                }
-                                            }
-                                            ?>
+<section class="section-big-py-space blog-page ratio2_3">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                        <div class="row product_image_4">
+
+                            <div class="col-6">
+                                <div>
+                                    <img src="../assets/images/product-sidebar/001.jpg" alt="" class="img-fluid  ">
                                 </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <img src="../assets/images/product-sidebar/002.jpg" alt="" class="img-fluid   ">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <img src="../assets/images/product-sidebar/003.jpg" alt="" class="img-fluid  ">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <img src="../assets/images/product-sidebar/004.jpg" alt="" class="img-fluid  ">
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <br>    
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <p style="font-size:25px;">Order-Id : 12345</p>
+                                <p style="font-size:23px;">Product List : ****</p>
+                                <p style="font-size:23px;">Order Total Cost : Rs.</p>
+                                <br>
+                                <p style="font-size:20px;">Pick-Up Location :</p>
+                                <p style="font-size:20px;">Drop Location :</p>
+                                <br>
+                                <p style="font-size:18px;">Order Status Updation :</p>
+                                <br>
+                                <ul>
+                                    <li>
+                                        <a class="btn btn-rounded btn-outline">
+                                            Accept Order
+                                        </a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div class="border-product pb-0">
+                                    <p style="font-size:15px;">Time Left For Delivery :</p>
+                                    <br>
+                                    <div class="timer">
+                                        <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/2.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/3.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/4.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
                             </div>
                         </div>
                     </div>
@@ -803,7 +805,7 @@ include('connect_db.php');
         </div>
     </div>
 </section>
-<!-- section End -->
+<!-- Section ends -->
 
 <!--footer start-->
 <footer class="footer-2">
@@ -815,7 +817,7 @@ include('connect_db.php');
                         <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
+                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid   " alt="logo">
                                 </div>
                                 <div class="footer-detail">
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
@@ -970,58 +972,6 @@ include('connect_db.php');
     </div>
 </div>
 <!-- tap to top End -->
-
-<!--Newsletter modal popup start-->
-
-<!--Newsletter Modal popup end-->
-
-<!-- Quick-view modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content quick-view-modal">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-12">
-                        <div class="quick-view-img"><img src="../assets/images/quick-view.jpg" alt="" class="img-fluid "></div>
-                    </div>
-                    <div class="col-lg-6 rtl-text">
-                        <div class="product-right">
-                            <h2>Women Pink Shirt</h2>
-                            <h3>$32.96</h3>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                            <div class="border-product">
-                                <h6 class="product-title">product details</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                            </div>
-                            <div class="product-description border-product">
-                                <div class="size-box">
-                                    <ul>
-                                        <li class="active"><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">xl</a></li>
-                                    </ul>
-                                </div>
-                                <h6 class="product-title">quantity</h6>
-                                <div class="qty-box">
-                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
-                                        <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
-                                </div>
-                            </div>
-                            <div class="product-buttons"><a href="#" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">view detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick-view modal popup end-->
 
 <!-- Add to cart bar -->
 <div id="cart_side" class=" add_to_cart right">
@@ -1284,12 +1234,11 @@ include('connect_db.php');
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- popper js-->
-<script src="../assets/js/menu.js" ></script>
-
 <!-- Bootstrap js-->
 <script src="../assets/js/bootstrap.js"></script>
-<script src="../assets/js/bootstrap-notify.min.js"></script>
+
+<!-- Timer js-->
+<script src="../assets/js/menu.js"></script>
 
 <!-- Theme js-->
 <script src="../assets/js/script.js"></script>

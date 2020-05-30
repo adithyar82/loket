@@ -1,6 +1,21 @@
 <?php
+session_start();
 include('connect_db.php');
-$product_name = $_REQUEST['id'];
+$order_id = $_SESSION['order_id'];
+$sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar007@gmail.com';";
+$result2 = $conn->query($sql2);
+if($result2->num_rows>0){
+    while($row=$result2->fetch_assoc()){
+        $address_1 = $row['address_1'];
+        $address_2 = $row['address_2'];
+        $city = $row['city'];
+        $state = $row['state'];
+        $zipcode = $row['zipcode'];
+        $country = $row['country'];
+
+    }
+}
+echo $sql;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,21 +42,16 @@ $product_name = $_REQUEST['id'];
     <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
 
-
     <!--Animate css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
-
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
-    <!--portfolio css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
-
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
 </head>
-<body class="bg-dark">
+<body>
 
 <!-- loader start -->
 <div class="loader-wrapper">
@@ -59,7 +69,7 @@ $product_name = $_REQUEST['id'];
             <div class="row">
                 <div class="col-xl-5 col-md-7 col-sm-6">
                     <div class="top-header-left">
-                        <!-- <div class="shpping-order">
+                        <div class="shpping-order">
                             <h6>free shipping on order over $99 </h6>
                         </div>
                         <div class="app-link">
@@ -71,12 +81,12 @@ $product_name = $_REQUEST['id'];
                                 <li><a><i class="fa fa-android" ></i></a></li>
                                 <li><a><i class="fa fa-windows" ></i></a></li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-md-5 col-sm-6">
                     <div class="top-header-right">
-                        <!-- <div class="top-menu-block">
+                        <div class="top-menu-block">
                             <ul>
                                 <li><a href="#">gift cards</a></li>
                                 <li><a href="#">Notifications</a></li>
@@ -86,9 +96,9 @@ $product_name = $_REQUEST['id'];
                                 <li><a href="#">shipping </a></li>
                                 <li><a href="#">easy returns</a></li>
                             </ul>
-                        </div> -->
+                        </div>
                         <div class="language-block">
-                            <!-- <div class="language-dropdown">
+                            <div class="language-dropdown">
                   <span  class="language-dropdown-click">
                     english <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -98,8 +108,8 @@ $product_name = $_REQUEST['id'];
                                     <li><a href="#">marathi</a></li>
                                     <li><a href="#">spanish</a></li>
                                 </ul>
-                            </div> -->
-                            <!-- <div class="curroncy-dropdown">
+                            </div>
+                            <div class="curroncy-dropdown">
                   <span class="curroncy-dropdown-click">
                     usd<i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -108,7 +118,7 @@ $product_name = $_REQUEST['id'];
                                     <li><a href="#"><i class="fa fa-usd"></i>usd</a></li>
                                     <li><a href="#"><i class="fa fa-eur"></i>eur</a></li>
                                 </ul>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -656,11 +666,11 @@ $product_name = $_REQUEST['id'];
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>cart</h2>
+                        <h2>checkout</h2>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">cart</a></li>
+                            <li><a href="#">checkout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -670,136 +680,148 @@ $product_name = $_REQUEST['id'];
 </div>
 <!-- breadcrumb End -->
 
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-title">
+                                <h3>Billing Details</h3></div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
 
-<!--section start-->
-<section class="cart-section section-big-py-space bg-light">
-        <div class="custom-container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table cart-table table-responsive-xs">
-                        <thead>
-                        <tr class="table-head">
-                            <th scope="col">image</th>
-                            <th scope="col">product name</th>
-                            <th scope="col">price</th>
-                            <th scope="col">quantity</th>
-                            <th scope="col">add to favourites</th>
-                            <th scope="col">action</th>
-                            <th scope="col">total</th>
-                        </tr>
-                        </thead>
-    
-                        <tbody>
-                        <tr>
-                            
-                                <div class="mobile-cart-content row">
-                                    <div class="col-xs-3">
-    
-                        <?php
-                        $sql = "SELECT * FROM items";
-                        $result = $conn->query($sql);
-                        $sql1 = "SELECT SUM(item_price) as total_price FROM items;";
-                        $result1 = $conn->query($sql1);
-                        if($result1->num_rows>0){
-                            while($row=$result1->fetch_assoc()){
-                                $total_price = $row['total_price'];
-                            }
-                        }
-                        if($result->num_rows>=0){
-                            while($row=$result->fetch_assoc()){
-                                $product_id = $row['id'];
-                                $item_name = $row['item_name'];
-                                $item_price = $row['item_price'];
-                                $initial_cost = $row['item_price'];
-                                $product_image = $row['product_image'];
-                                echo'<tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#"><img src="'.$product_image.'" alt="cart"  class=" "></a>
-                                    </td>
-                                    <td><a href="#">'.$item_name.'</a>
-                                        <div class="mobile-cart-content row">
-                                            <div class="col-xs-3">
-                                                <div class="qty-box">
-                                                    <div class="input-group">
-                                                        <input type="number" name="quantity" class="form-control input-number" value="1">
-                                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>First Name</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>Last Name</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">Phone</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">Email Address</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Country</label>
+                                        <select>
+                                            <option>India</option>
+                                            <option>South Africa</option>
+                                            <option>United State</option>
+                                            <option>Australia</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Address</label>
+                                        <input type="text" name="field-name" value="<?php echo $address_1.' '.$address_2?>" placeholder="Street address">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Town/City</label>
+                                        <input type="text" name="field-name" value="<?php echo $city?>" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <label class="field-label">State / County</label>
+                                        <input type="text" name="field-name" value="<?php echo $state?>" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <label class="field-label">Postal Code</label>
+                                        <input type="text" name="field-name" value="<?php echo $zipcode?>" placeholder="">
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <input type="checkbox" name="shipping-option" id="account-option"> &ensp;
+                                        <label for="account-option">Create An Account?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-details theme-form  section-big-mt-space">
+                                <div class="order-box">
+                                    <div class="title-box">
+                                        <div>Product <span>Total</span></div>
+                                    </div>
+                                    <?php
+                                    $sql = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $result = $conn->query($sql);
+                                    if($result->num_rows>0){
+                                        while($row = $result->fetch_assoc()){
+                                            $product_name = $row['product_name'];
+                                            $product_quantity = $row['product_quantity'];
+                                            $final_cost = $row['final_cost'];
+                                            echo '<ul class="qty">
+                                            <li>'.$product_name.' × 1 <span>Rs '.$final_cost.'</span></li>
+                                            
+                                            </ul>';
+                                        }
+                                    }
+                                    $total_cost = $final_cost + 20;
+                                    ?>
+                                    <ul class="sub-total">
+                                        <li>Subtotal <span class="count">Rs <?php echo $final_cost?></span></li>
+                                        <li>Shipping
+                                            <div class="shipping">
+                                                <div class="shopping-option">
+                                                    
+                                                    <label for="local-pickup">Rs 20</label>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3">
-                                                <h2 class="td-color">'.$initial_cost.'</h2></div>
-                                            <div class="col-xs-3">
-                                                <h2 class="td-color"><a href="cart_2.php?id='.$product_name.'" class="icon"><i class="ti-open"></i></a></h2></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2>'.$initial_cost.'</h2></td>
-                                    <td>
-    
-                                    
-                                        <div class="qty-box">
-                                            <div class="input-group">
-                                            <form action="/action_page.php">
-                                                <label for="cars"></label>
-                                                <select id="cars" name="cars">
-                                                    <option value="volvo">1</option>
-                                                    <option value="saab">2</option>
-                                                    <option value="fiat">3</option>
-                                                    <option value="audi">4</option>
-                                                    <option value="audi">5</option>
-                                                    <option value="audi">6</option>
-                                                    <option value="audi">7</option>
-                                                    <option value="audi">8</option>
-                                                    <option value="audi">9</option>
-                                                    <option value="audi">10</option>
-                                                </select>
-                                            </form>
+                                        </li>
+                                        <li>Tax
+                                            <div class="shipping">
+                                                <div class="shopping-option">
+                                                    
+                                                    <label for="local-pickup"></label>
+                                                </div>
                                             </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="total">
+                                        <li>Total <span class="count">Rs <?php echo $total_cost?></span></li>
+                                    </ul>
+                                </div>
+                                <div class="payment-box">
+                                    <div class="upper-box">
+                                        <div class="payment-options">
+                                            <ul>
+                                                <li>
+                                                    <div class="radio-option">
+                                                        <input type="radio" name="payment-group" id="payment-1" checked="checked">
+                                                        <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="radio-option">
+                                                        <input type="radio" name="payment-group" id="payment-2">
+                                                        <label for="payment-2">Cash On Delivery<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="radio-option paypal">
+                                                        <input type="radio" name="payment-group" id="payment-3">
+                                                        <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt=""></span></label>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        
-                                        
-    
                                     </div>
-                                    
-                            </td>
-                            <td><a href="favourite_2.php?id='.$product_name.'"><i class="fa fa-heart" ></i></a></td>
-                            
-                            
-                            <td><a href="cart_2.php?id='.$item_name.'" class="icon"><i class="fa fa-trash"></i></a></td>
-                            <td>
-                                <h2 class="" style = "color:#1167b1">Rs '.$item_price.'</h2></td>
-                        </tr>
-                        </tbody>
-    
-                                    
-                                    
-                                    
-                                </tr>
-                                </tbody>';
-                            }
-                        }
-                        ?>
-                        
-    
-                        
-                    </table>
-                    <table class="table cart-table table-responsive-md">
-                        <tfoot>
-                        <tr>
-                            <td>total price :</td>
-                            <td>
-                                <h2><?php echo $total_price?></h2></td>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            <div class="row cart-buttons">
-                <div class="col-12"><a href="#" class="btn btn-normal">continue shopping</a> <a href="#" class="btn btn-normal ml-3">check out</a></div>
+                                    <div class="text-right"><a href="#" class="btn-normal btn">Place Order</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-<!--section end-->
+    </div>
+</section>
+<!-- section end -->
 
 
 <!--footer start-->
@@ -808,14 +830,14 @@ $product_name = $_REQUEST['id'];
         <div class="row">
             <div class="col-12">
                 <div class="footer-main-contian">
-                    <div class="row ">
-                        <div class="col-lg-4 col-md-12 ">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
+                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid" alt="logo">
                                 </div>
                                 <div class="footer-detail">
-                                <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
                                     <ul class="paymant-bottom">
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
@@ -826,20 +848,20 @@ $product_name = $_REQUEST['id'];
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 ">
+                        <div class="col-lg-8 col-md-12 p-l-md-0">
                             <div class="footer-right">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <!-- <div class="col-md-5 ">
+                                                <div class="col-md-5 pr-lg-0">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            <h4>subscribe to newsletter</h4>
+                                                            
                                                         </div>
                                                     </div>
-                                                </div> -->
-                                                <!-- <div class="col-md-7 ">
+                                                </div>
+                                                <div class="col-md-7 p-l-md-0">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -853,7 +875,7 @@ $product_name = $_REQUEST['id'];
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -899,10 +921,10 @@ $product_name = $_REQUEST['id'];
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
-                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us: contact.azeempatel@gmail.com</span></li>
-                                                                <!-- <li><i class="fa fa-fax"></i><span>fax 123456</span></li> -->
+                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
+                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
+                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -951,7 +973,7 @@ $product_name = $_REQUEST['id'];
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
+                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
                     </div>
                 </div>
             </div>
@@ -959,7 +981,6 @@ $product_name = $_REQUEST['id'];
     </div>
 </footer>
 <!--footer end-->
-
 
 <!-- tap to top -->
 <div class="tap-top">
@@ -986,7 +1007,7 @@ $product_name = $_REQUEST['id'];
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/2.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/1.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -1006,7 +1027,7 @@ $product_name = $_REQUEST['id'];
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/5.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/2.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -1025,7 +1046,7 @@ $product_name = $_REQUEST['id'];
                 </li>
                 <li>
                     <div class="media">
-                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-6/product/1.jpg"></a>
+                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-4/product/3.jpg"></a>
                         <div class="media-body">
                             <a href="#">
                                 <h4>item name</h4>
@@ -1057,82 +1078,6 @@ $product_name = $_REQUEST['id'];
     </div>
 </div>
 <!-- Add to cart bar end-->
-
-<!--Newsletter modal popup start-->
-<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="news-latter">
-                    <div class="modal-bg">
-                        <div class="offer-content vagi-offer-contant">
-                            <div>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <h2>newsletter</h2>
-                                <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
-                                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
-                                    <div class="form-group mx-sm-3">
-                                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
-                                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!--Newsletter Modal popup end-->
-
-<!-- Quick-view modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content quick-view-modal">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-12">
-                        <div class="quick-view-img"><img src="../assets/images/layout-6/product/a6.jpg" alt="quick" class="img-fluid "></div>
-                    </div>
-                    <div class="col-lg-6 rtl-text">
-                        <div class="product-right">
-                            <h2>Pear - Green/Naspatit</h2>
-                            <h3>$32.96</h3>
-                            <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul>
-                            <div class="border-product">
-                                <h6 class="product-title">product details</h6>
-                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-                            </div>
-                            <div class="product-description border-product">
-                                <div class="size-box">
-                                    <ul>
-                                        <li class="active"><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">xl</a></li>
-                                    </ul>
-                                </div>
-                                <h6 class="product-title">quantity</h6>
-                                <div class="qty-box">
-                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
-                                        <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
-                                </div>
-                            </div>
-                            <div class="product-buttons"><a href="#" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">view detail</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick-view modal popup end-->
 
 <!-- My account bar start-->
 <div id="myAccount" class="add_to_cart right account-bar">
@@ -1297,41 +1242,22 @@ $product_name = $_REQUEST['id'];
 </div>
 <!-- Add to setting bar end-->
 
- <!-- notification product -->
-  <div class="product-notification" id="dismiss">
-    <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
-    <div class="media">
-      <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">Latest trending</h5>
-        Cras sit amet nibh libero, in gravida nulla.
-      </div>
-    </div>
-  </div>
-  <!-- notification product -->
-
-
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+
+<!-- menu js-->
+<script src="../assets/js/menu.js"></script>
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js"></script>
-
-<!-- Bootstrap js-->
-<script src="../assets/js/bootstrap-notify.min.js"></script>
-
-<!-- Timer js-->
-<script src="../assets/js/menu.js"></script>
-
 <!-- slick js-->
-<script src="../assets/js/slick.js"></script>
+<script  src="../assets/js/slick.js"></script>
+
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap.js" ></script>
 
 <!-- Theme js-->
-<script src="../assets/js/modal.js"></script>
-<script src="../assets/js/slider-animat-one.js"></script>
-<script src="../assets/js/script.js"></script>
+<script src="../assets/js/script.js" ></script>
 </body>
 </html>

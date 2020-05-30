@@ -1,6 +1,7 @@
 <?php
+session_start();
 include('connect_db.php');
-$product_name = $_REQUEST['id'];
+$order_id = $_SESSION['order_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,21 +28,16 @@ $product_name = $_REQUEST['id'];
     <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
 
-
     <!--Animate css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
-
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
-    <!--portfolio css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/magnific-popup.css">
-
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
 </head>
-<body class="bg-dark">
+<body>
 
 <!-- loader start -->
 <div class="loader-wrapper">
@@ -656,11 +652,11 @@ $product_name = $_REQUEST['id'];
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>cart</h2>
+                        <h2>checkout</h2>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">cart</a></li>
+                            <li><a href="#">checkout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -670,122 +666,155 @@ $product_name = $_REQUEST['id'];
 </div>
 <!-- breadcrumb End -->
 
+<!-- section start -->
+<section class="section-big-py-space bg-light">
+    <div class="custom-container">
+        <div class="checkout-page contact-page">
+            <div class="checkout-form">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-title">
+                                <h3>Billing Details</h3></div>
+                            <div class="theme-form">
+                                <div class="row check-out ">
 
-<!--section start-->
-<section class="cart-section section-big-py-space bg-light">
-        <div class="custom-container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table cart-table table-responsive-xs">
-                        <thead>
-                        <tr class="table-head">
-                            <th scope="col">image</th>
-                            <th scope="col">product name</th>
-                            <th scope="col">price</th>
-                            <th scope="col">quantity</th>
-                            <th scope="col">add to favourites</th>
-                            <th scope="col">action</th>
-                            <th scope="col">total</th>
-                        </tr>
-                        </thead>
-    
-                        <tbody>
-                        <tr>
-                            
-                                <div class="mobile-cart-content row">
-                                    <div class="col-xs-3">
-    
-                        <?php
-                        $sql = "SELECT * FROM items";
-                        $result = $conn->query($sql);
-                        $sql1 = "SELECT SUM(item_price) as total_price FROM items;";
-                        $result1 = $conn->query($sql1);
-                        if($result1->num_rows>0){
-                            while($row=$result1->fetch_assoc()){
-                                $total_price = $row['total_price'];
-                            }
-                        }
-                        if($result->num_rows>=0){
-                            while($row=$result->fetch_assoc()){
-                                $product_id = $row['id'];
-                                $item_name = $row['item_name'];
-                                $item_price = $row['item_price'];
-                                $initial_cost = $row['item_price'];
-                                $product_image = $row['product_image'];
-                                echo'<tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#"><img src="'.$product_image.'" alt="cart"  class=" "></a>
-                                    </td>
-                                    <td><a href="#">'.$item_name.'</a>
-                                        <div class="mobile-cart-content row">
-                                            <div class="col-xs-3">
-                                                <div class="qty-box">
-                                                    <div class="input-group">
-                                                        <input type="text" name="quantity" class="form-control input-number" value="1">
-                                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>First Name</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label>Last Name</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">Phone</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label class="field-label">Email Address</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Country</label>
+                                        <select>
+                                            <option>India</option>
+                                            <option>South Africa</option>
+                                            <option>United State</option>
+                                            <option>Australia</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Address</label>
+                                        <input type="text" name="field-name" value="" placeholder="Street address">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="field-label">Town/City</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <label class="field-label">State / County</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <label class="field-label">Postal Code</label>
+                                        <input type="text" name="field-name" value="" placeholder="">
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <input type="checkbox" name="shipping-option" id="account-option"> &ensp;
+                                        <label for="account-option">Create An Account?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="checkout-details theme-form  section-big-mt-space">
+                                <div class="order-box">
+                                    <div class="title-box">
+                                        <div>Product <span>Total</span></div>
+                                    </div>
+                                    <?php
+                                    $sql = "SELECT * FROM items;";
+                                    $result = $conn->query($sql);
+                                    if($result->num_rows>0){
+                                        while($row = $result->fetch_assoc()){
+                                            $product_name = $row['item_name'];
+                                            $product_quantity = $row['product_quantity'];
+                                            $final_cost = $row['item_price'];
+                                            echo '<ul class="qty">
+                                            <li>'.$product_name.' × 1 <span>Rs '.$final_cost.'</span></li>
+                                            
+                                            </ul>';
+                                        }
+                                    }
+                                    $sql1 = "SELECT SUM(item_price) as total_price FROM items;";
+                                    $result1 = $conn->query($sql1);
+                                    if($result1->num_rows>0){
+                                        while($row=$result1->fetch_assoc()){
+                                            $total_price = $row['total_price'];
+                                        }
+                                    }
+                                    $total_price_1 = $total_price + 20;
+                                    ?>
+                                    <ul class="sub-total">
+                                        <li>Subtotal <span class="count">Rs <?php echo $total_price?></span></li>
+                                        <li>Shipping
+                                            <div class="shipping">
+                                                <div class="shopping-option">
+                                                    
+                                                    <label for="local-pickup">Rs 20</label>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3">
-                                                <h2 class="td-color">'.$initial_cost.'</h2></div>
-                                            <div class="col-xs-3">
-                                                <h2 class="td-color"><a href="cart_2.php?id='.$product_name.'" class="icon"><i class="ti-open"></i></a></h2></div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2>'.$initial_cost.'</h2></td>
-                                    <td>
-    
-                                    
-                                        <div class="qty-box">
-                                            <div class="input-group">
-                                                <input type="number" name="quantity" class="form-control input-number" value="1">
+                                        </li>
+                                        <li>Tax
+                                            <div class="shipping">
+                                                <div class="shopping-option">
+                                                    
+                                                    <label for="local-pickup"></label>
+                                                </div>
                                             </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="total">
+                                        <li>Total <span class="count">Rs <?php echo $total_price_1?></span></li>
+                                    </ul>
+                                </div>
+                                <div class="payment-box">
+                                    <div class="upper-box">
+                                        <div class="payment-options">
+                                            <ul>
+                                                <li>
+                                                    <div class="radio-option">
+                                                        <input type="radio" name="payment-group" id="payment-1" checked="checked">
+                                                        <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="radio-option">
+                                                        <input type="radio" name="payment-group" id="payment-2">
+                                                        <label for="payment-2">Cash On Delivery<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="radio-option paypal">
+                                                        <input type="radio" name="payment-group" id="payment-3">
+                                                        <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt=""></span></label>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        
-                                        
-    
                                     </div>
-                                    
-                            </td>
-                            <td><a href="favourite_2.php?id='.$product_name.'"><i class="fa fa-heart" ></i></a></td>
-                            
-                            
-                            <td><a href="cart_2.php?id='.$item_name.'" class="icon"><i class="fa fa-trash"></i></a></td>
-                            <td>
-                                <h2 class="" style = "color:#1167b1">Rs '.$item_price.'</h2></td>
-                        </tr>
-                        </tbody>
-    
-                                    
-                                    
-                                    
-                                </tr>
-                                </tbody>';
-                            }
-                        }
-                        ?>
-                        
-    
-                        
-                    </table>
-                    <table class="table cart-table table-responsive-md">
-                        <tfoot>
-                        <tr>
-                            <td>total price :</td>
-                            <td>
-                                <h2><?php echo $total_price?></h2></td>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            <div class="row cart-buttons">
-                <div class="col-12"><a href="#" class="btn btn-normal">continue shopping</a> <a href="#" class="btn btn-normal ml-3">check out</a></div>
+                                    <div class="text-right"><a href="#" class="btn-normal btn">Place Order</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-<!--section end-->
+    </div>
+</section>
+<!-- section end -->
 
 
 <!--footer start-->
@@ -798,7 +827,7 @@ $product_name = $_REQUEST['id'];
                         <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
+                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid" alt="logo">
                                 </div>
                                 <div class="footer-detail">
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
@@ -1206,13 +1235,11 @@ $product_name = $_REQUEST['id'];
 </div>
 <!-- Add to setting bar end-->
 
-
 <!-- latest jquery-->
 <script src="../assets/js/jquery-3.3.1.min.js" ></script>
 
 <!-- menu js-->
 <script src="../assets/js/menu.js"></script>
-
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
@@ -1223,11 +1250,7 @@ $product_name = $_REQUEST['id'];
 <!-- Bootstrap js-->
 <script src="../assets/js/bootstrap.js" ></script>
 
-<!-- Bootstrap Notification js-->
-<script src="../assets/js/bootstrap-notify.min.js"></script>
-
 <!-- Theme js-->
 <script src="../assets/js/script.js" ></script>
-
 </body>
 </html>

@@ -59,7 +59,7 @@ $product_name = $_REQUEST['id'];
             <div class="row">
                 <div class="col-xl-5 col-md-7 col-sm-6">
                     <div class="top-header-left">
-                        <div class="shpping-order">
+                        <!-- <div class="shpping-order">
                             <h6>free shipping on order over $99 </h6>
                         </div>
                         <div class="app-link">
@@ -71,12 +71,12 @@ $product_name = $_REQUEST['id'];
                                 <li><a><i class="fa fa-android" ></i></a></li>
                                 <li><a><i class="fa fa-windows" ></i></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-7 col-md-5 col-sm-6">
                     <div class="top-header-right">
-                        <div class="top-menu-block">
+                        <!-- <div class="top-menu-block">
                             <ul>
                                 <li><a href="#">gift cards</a></li>
                                 <li><a href="#">Notifications</a></li>
@@ -86,9 +86,9 @@ $product_name = $_REQUEST['id'];
                                 <li><a href="#">shipping </a></li>
                                 <li><a href="#">easy returns</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div class="language-block">
-                            <div class="language-dropdown">
+                            <!-- <div class="language-dropdown">
                   <span  class="language-dropdown-click">
                     english <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -98,8 +98,8 @@ $product_name = $_REQUEST['id'];
                                     <li><a href="#">marathi</a></li>
                                     <li><a href="#">spanish</a></li>
                                 </ul>
-                            </div>
-                            <div class="curroncy-dropdown">
+                            </div> -->
+                            <!-- <div class="curroncy-dropdown">
                   <span class="curroncy-dropdown-click">
                     usd<i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -108,7 +108,7 @@ $product_name = $_REQUEST['id'];
                                     <li><a href="#"><i class="fa fa-usd"></i>usd</a></li>
                                     <li><a href="#"><i class="fa fa-eur"></i>eur</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -721,7 +721,7 @@ $product_name = $_REQUEST['id'];
                                             <div class="col-xs-3">
                                                 <div class="qty-box">
                                                     <div class="input-group">
-                                                        <input type="text" name="quantity" class="form-control input-number" value="1">
+                                                        <input type="number" name="quantity" class="form-control input-number" value="1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -737,7 +737,21 @@ $product_name = $_REQUEST['id'];
     
                                         <div class="qty-box">
                                             <div class="input-group">
-                                                <input type="number" name="quantity" class="form-control input-number" value="1">
+                                            <form action="/action_page.php">
+                                                <label for="cars"></label>
+                                                <select id="cars" name="cars">
+                                                    <option value="volvo">1</option>
+                                                    <option value="saab">2</option>
+                                                    <option value="fiat">3</option>
+                                                    <option value="audi">4</option>
+                                                    <option value="audi">5</option>
+                                                    <option value="audi">6</option>
+                                                    <option value="audi">7</option>
+                                                    <option value="audi">8</option>
+                                                    <option value="audi">9</option>
+                                                    <option value="audi">10</option>
+                                                </select>
+                                            </form>
                                             </div>
                                         </div>
     
@@ -789,14 +803,14 @@ $product_name = $_REQUEST['id'];
         <div class="row">
             <div class="col-12">
                 <div class="footer-main-contian">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 pr-lg-0">
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-12 ">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo-header">
+                                    <img src="../assets/images/logo.jpeg" class="img-fluid  " alt="logo">
                                 </div>
                                 <div class="footer-detail">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
+                                <p>About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us About Us</p>
                                     <ul class="paymant-bottom">
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
                                         <li><a href="#"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
@@ -807,20 +821,20 @@ $product_name = $_REQUEST['id'];
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 p-l-md-0">
+                        <div class="col-lg-8 col-md-12 ">
                             <div class="footer-right">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subscribe-section">
                                             <div class="row">
-                                                <div class="col-md-5 pr-lg-0">
+                                                <!-- <div class="col-md-5 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant ">
-                                                            
+                                                            <h4>subscribe to newsletter</h4>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-7 p-l-md-0">
+                                                </div> -->
+                                                <!-- <div class="col-md-7 ">
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group" >
@@ -834,7 +848,7 @@ $product_name = $_REQUEST['id'];
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -880,10 +894,10 @@ $product_name = $_REQUEST['id'];
                                                         </div>
                                                         <div class="footer-contant">
                                                             <ul class="contact-list">
-                                                                <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li>
-                                                                <li><i class="fa fa-phone"></i><span>call us: 123-456-7898</span></li>
-                                                                <li><i class="fa fa-envelope-o"></i><span>email us: support@bigdeal.com</span></li>
-                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span></li>
+                                                                <!-- <li><i class="fa fa-map-marker"></i><span>big deal store demo store <br> <span> india-3654123</span></span></li> -->
+                                                                <li><i class="fa fa-phone"></i><span>call us: 8095566699</span></li>
+                                                                <li><i class="fa fa-envelope-o"></i><span>email us: contact.azeempatel@gmail.com</span></li>
+                                                                <!-- <li><i class="fa fa-fax"></i><span>fax 123456</span></li> -->
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -932,7 +946,7 @@ $product_name = $_REQUEST['id'];
             <div class="row">
                 <div class="col-12">
                     <div class="sub-footer-contain">
-                        <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p>
+                        <!-- <p><span>2018 - 19 </span>copy right by themeforest powered by pixel strap</p> -->
                     </div>
                 </div>
             </div>
@@ -940,6 +954,7 @@ $product_name = $_REQUEST['id'];
     </div>
 </footer>
 <!--footer end-->
+
 
 <!-- tap to top -->
 <div class="tap-top">
@@ -966,7 +981,7 @@ $product_name = $_REQUEST['id'];
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/1.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/2.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -986,7 +1001,7 @@ $product_name = $_REQUEST['id'];
                 <li>
                     <div class="media">
                         <a href="#">
-                            <img alt="" class="mr-3" src="../assets/images/layout-4/product/2.jpg">
+                            <img alt="" class="mr-3" src="../assets/images/layout-6/product/5.jpg">
                         </a>
                         <div class="media-body">
                             <a href="#">
@@ -1005,7 +1020,7 @@ $product_name = $_REQUEST['id'];
                 </li>
                 <li>
                     <div class="media">
-                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-4/product/3.jpg"></a>
+                        <a href="#"><img alt="" class="mr-3" src="../assets/images/layout-6/product/1.jpg"></a>
                         <div class="media-body">
                             <a href="#">
                                 <h4>item name</h4>
@@ -1037,6 +1052,82 @@ $product_name = $_REQUEST['id'];
     </div>
 </div>
 <!-- Add to cart bar end-->
+
+<!--Newsletter modal popup start-->
+<!-- <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="news-latter">
+                    <div class="modal-bg">
+                        <div class="offer-content vagi-offer-contant">
+                            <div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h2>newsletter</h2>
+                                <p>Subscribe to our website mailling list <br> and get a Offer, Just for you!</p>
+                                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                    <div class="form-group mx-sm-3">
+                                        <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required="required">
+                                        <button type="submit" class="btn btn-theme btn-normal btn-sm " id="mc-submit">subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--Newsletter Modal popup end-->
+
+<!-- Quick-view modal popup start-->
+<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content quick-view-modal">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="quick-view-img"><img src="../assets/images/layout-6/product/a6.jpg" alt="quick" class="img-fluid "></div>
+                    </div>
+                    <div class="col-lg-6 rtl-text">
+                        <div class="product-right">
+                            <h2>Pear - Green/Naspatit</h2>
+                            <h3>$32.96</h3>
+                            <ul class="color-variant">
+                                <li class="bg-light0"></li>
+                                <li class="bg-light1"></li>
+                                <li class="bg-light2"></li>
+                            </ul>
+                            <div class="border-product">
+                                <h6 class="product-title">product details</h6>
+                                <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                            </div>
+                            <div class="product-description border-product">
+                                <div class="size-box">
+                                    <ul>
+                                        <li class="active"><a href="#">s</a></li>
+                                        <li><a href="#">m</a></li>
+                                        <li><a href="#">l</a></li>
+                                        <li><a href="#">xl</a></li>
+                                    </ul>
+                                </div>
+                                <h6 class="product-title">quantity</h6>
+                                <div class="qty-box">
+                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
+                                        <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
+                                </div>
+                            </div>
+                            <div class="product-buttons"><a href="#" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">view detail</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick-view modal popup end-->
 
 <!-- My account bar start-->
 <div id="myAccount" class="add_to_cart right account-bar">
@@ -1201,28 +1292,41 @@ $product_name = $_REQUEST['id'];
 </div>
 <!-- Add to setting bar end-->
 
+ <!-- notification product -->
+  <div class="product-notification" id="dismiss">
+    <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
+    <div class="media">
+      <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">Latest trending</h5>
+        Cras sit amet nibh libero, in gravida nulla.
+      </div>
+    </div>
+  </div>
+  <!-- notification product -->
+
 
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js" ></script>
-
-<!-- menu js-->
-<script src="../assets/js/menu.js"></script>
-
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- slick js-->
-<script  src="../assets/js/slick.js"></script>
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap.js"></script>
 
 <!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js" ></script>
-
-<!-- Bootstrap Notification js-->
 <script src="../assets/js/bootstrap-notify.min.js"></script>
 
-<!-- Theme js-->
-<script src="../assets/js/script.js" ></script>
+<!-- Timer js-->
+<script src="../assets/js/menu.js"></script>
 
+<!-- slick js-->
+<script src="../assets/js/slick.js"></script>
+
+<!-- Theme js-->
+<script src="../assets/js/modal.js"></script>
+<script src="../assets/js/slider-animat-one.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

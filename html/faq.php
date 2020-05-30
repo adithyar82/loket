@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color2.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
 </head>
 <body>
 
@@ -239,7 +239,7 @@
 
 
 <!--footer start-->
-<footer class="footer-2" >
+<footer class="footer-2">
     <div class="container ">
         <div class="row">
             <div class="col-12">
@@ -398,9 +398,9 @@
 
 
 <!-- tap to top -->
-<div class="tap-top bg-white">
+<div class="tap-top">
     <div>
-        <img src="../assets/images/icon/tap-top.png" class="img-fluid" alt="tap top"/>
+        <i class="fa fa-angle-double-up"></i>
     </div>
 </div>
 <!-- tap to top End -->

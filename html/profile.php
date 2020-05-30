@@ -30,7 +30,18 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color2.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
+    <script>
+    function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+    }
+    </script>
+
 </head>
 <body>
 <!-- loader start -->
@@ -78,8 +89,8 @@
                             </ul>
                         </div> -->
                         <div class="language-block">
-                            <div class="language-dropdown">
-                  <!-- <span  class="language-dropdown-click">
+                            <!-- <div class="language-dropdown">
+                  <span  class="language-dropdown-click">
                     english <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
                                 <ul class="language-dropdown-open">
@@ -87,18 +98,18 @@
                                     <li><a href="#">english</a></li>
                                     <li><a href="#">marathi</a></li>
                                     <li><a href="#">spanish</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="curroncy-dropdown">
-                  <!-- <span class="curroncy-dropdown-click">
+                                </ul>
+                            </div> -->
+                            <!-- <div class="curroncy-dropdown">
+                  <span class="curroncy-dropdown-click">
                     usd<i class="fa fa-angle-down" aria-hidden="true"></i>
                   </span>
                                 <ul class="curroncy-dropdown-open">
                                     <li><a href="#"><i class="fa fa-inr"></i>inr</a></li>
                                     <li><a href="#"><i class="fa fa-usd"></i>usd</a></li>
                                     <li><a href="#"><i class="fa fa-eur"></i>eur</a></li>
-                                </ul> -->
-                            </div>
+                                </ul>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -109,9 +120,9 @@
         <div class="container">
             <div class="col-md-12">
                 <div class="main-menu-block">
-                    <div class="sm-nav-block">
-                        <!-- <span class="sm-nav-btn"><i class="fa fa-bars"></i></span> -->
-                        <!-- <ul class="nav-slide">
+                    <!-- <div class="sm-nav-block">
+                        <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
+                        <ul class="nav-slide">
                             <li>
                                 <div class="nav-sm-back">
                                     back <i class="fa fa-angle-right pl-2"></i>
@@ -144,8 +155,8 @@
                                     <i class="fa fa-angle-up pro-up" ></i>
                                 </a>
                             </li>
-                        </ul> -->
-                    </div>
+                        </ul>
+                    </div> -->
                     
                     <!-- <div class="input-block">
                         <div class="input-box">
@@ -153,19 +164,19 @@
                                 <div class="input-group ">
                                     <div class="input-group-prepend">
                                         <span class="search"><i class="fa fa-search"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Search a Product" >
-                                    <div class="input-group-prepend">
+                                    </div> -->
+                                    <!-- <input type="text" class="form-control" placeholder="Search a Product" > -->
+                                    <!-- <div class="input-group-prepend">
                                         <select>
                                             <option>All Category</option>
                                             <option>indurstrial</option>
                                             <option>sports</option>
                                         </select>
-                                    </div>
+                                     </div> -->
                                 </div>
                             </form>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- <div class="cart-block cart-hover-div " onclick="openCart()">
                         <div class="cart ">
                             <span class="cart-product">0</span>
@@ -182,7 +193,7 @@
                             <h5>cart</h5>
                         </div>
                     </div> -->
-                    <!-- <div class="menu-nav">
+                     <!-- <div class="menu-nav">
               <span class="toggle-nav">
                 <i class="fa fa-bars "></i>
               </span>
@@ -207,8 +218,8 @@
                                             <span class="navbar-icon"><i class="fa fa-arrow-down"></i></span>
                                         </button>
                                         <h5 class="mb-0  text-white title-font">Shop by category</h5>
-                                    </nav> -->
-                                    <!-- <div class="collapse  nav-desk" id="navbarToggleExternalContent">
+                                    </nav>
+                                    <div class="collapse  nav-desk" id="navbarToggleExternalContent">
                                         <ul class="nav-cat title-font">
                                             <li> <img src="../assets/images/layout-1/nav-img/01.png" alt="category-product"> <a href="#">western ware</a></li>
                                             <li> <img src="../assets/images/layout-1/nav-img/02.png" alt="category-product"> <a href="#">TV, Appliances</a></li>
@@ -248,19 +259,19 @@
                                         <!--HOME-->
                                         <li>
                                             <a href="category.php" class="dark-menu-item">Home</a>
-                                            <!-- <ul>
+                                            <ul>
                                                 <li><a target="_blank" href="index.html">layout 1</a></li>
                                                 <li><a target="_blank" href="layout-2.html">layout 2</a></li>
                                                 <li><a target="_blank" href="layout-3.html">layout 3</a></li>
                                                 <li><a target="_blank" href="layout-4.html">layout 4</a></li>
                                                 <li><a target="_blank" href="layout-5.html">layout 5</a></li>
                                                 <li><a target="_blank" href="layout-6.html">layout 6</a></li>
-                                            </ul> -->
+                                            </ul>
                                         </li>
                                         <!--HOME-END-->
 
                                         <!--SHOP-->
-                                        <!-- <li>
+                                        <li>
                                             <a href="#" class="dark-menu-item">shop</a>
                                             <ul>
                                                 <li><a href="category-page(left-sidebar).html">left sidebar</a></li>
@@ -274,12 +285,12 @@
                                                 <li><a href="category-page(6-grid).html">6 grid</a></li>
                                                 <li><a href="category-page(list-view).html">list view</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li>
                                         <!--SHOP-END-->
 
 
                                         <!--product-meu start-->
-                                        <!-- <li class="mega"><a href="#" class="dark-menu-item">product
+                                        <li class="mega"><a href="#" class="dark-menu-item">product
                                         </a>
                                             <ul class="mega-menu full-mega-menu ">
                                                 <li>
@@ -385,11 +396,11 @@
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </li> -->
+                                        </li>
                                         <!--product-meu end-->
 
                                         <!--mega-meu start-->
-                                        <!-- <li class="mega" >
+                                        <li class="mega" >
                                             <a href="#" class="dark-menu-item">features</a>
                                             <ul class="mega-menu full-mega-menu ratio_landscape">
                                                 <li>
@@ -478,7 +489,7 @@
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </li> -->
+                                        </li>
                                         <!--mega-meu end-->
 
                                         <!--pages-meu start-->
@@ -521,7 +532,7 @@
                                         <!--product-end end-->
 
                                         <!--blog-meu start-->
-                                        <!-- <li>
+                                        <li>
                                             <a href="#" class="dark-menu-item">blog</a>
                                             <ul>
                                                 <li><a href="blog(left-sidebar).html">left sidebar</a></li>
@@ -529,7 +540,7 @@
                                                 <li><a href="blog(no-sidebar).html">no sidebar</a></li>
                                                 <li><a href="blog-details.html">blog details</a></li>
                                             </ul>
-                                        </li> -->
+                                        </li>
                                         <!--blog-meu end-->
                                     </ul>
                                 </nav>
@@ -540,7 +551,7 @@
                                         <a href="#"><i class="icon-user"></i>
                                         </a>
                                     </li>
-                                    <!-- <li class="mobile-wishlist" onclick="openWishlist()">
+                                    <li class="mobile-wishlist" onclick="openWishlist()">
                                         <a ><i class="icon-heart"></i><div class="cart-item"><div>0 item<span>wishlist</span></div></div></a></li>
                                     <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
                                         <div class ="search-overlay">
@@ -559,7 +570,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </li>
                                     <li class="mobile-setting mobile-setting-hover" onclick="openSetting()"><a href="#"><i class="icon-settings"></i></a>
                                     </li>
@@ -648,6 +659,11 @@
                 <div class="breadcrumb-contain">
                     <div>
                         <h2>profile</h2>
+                        <h4>
+                            <input type="text" value="Referral" id="myInput" disabled>
+                            <button onclick="myFunction()"><i class="fa fa-share"></i></button>
+                        </h4>
+                        <br>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
@@ -666,7 +682,7 @@
     <div class="custom-container">
         <div class="row">
             <div class="col-lg-6">
-                <h3 class="mb-3">PERSONAL DETAIL</h3>
+                <h3 class="mb-3">PERSONAL DETAILS</h3>
                 <form class="theme-form">
                     <div class="form-row">
                         <div class="col-md-6">
@@ -695,10 +711,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div >
-                                <label for="review">Write Your Message</label>
-                                <textarea class="form-control mb-0" placeholder="Write Your Message" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <button class="btn btn-sm btn-normal mb-lg-5" type="submit">Update Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <button class="btn btn-sm btn-normal mb-lg-5" type="submit"><a href="forgot_password.php" style="color:white">Change Password</a></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -750,7 +774,7 @@
                            </div>
                         </div>
                         <div class="col-md-12">
-                            <button class="btn btn-sm btn-normal mb-lg-5" type="submit">Save setting</button>
+                            <button class="btn btn-sm btn-normal mb-lg-5" type="submit">Save Address</button>
                         </div>
                     </div>
                 </form>

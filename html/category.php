@@ -529,7 +529,7 @@ include('connect_db.php');
                                             while($row=$result_2->fetch_assoc()){
                                                 $category_name = $row['category_name'];
                                                 $category_icon = $row['category_icon'];
-                                                        echo'<li> <img src="'.$category_icon.'" alt="category-product">'.$category_name.' <a href="category_1.php?id='.$category_name.'"</a></li>';
+                                                        echo'<a href="category_1.php?id='.$category_name.'"><li> <img src="'.$category_icon.'" alt="category-product">'.$category_name.' </a></li>';
                                             }
                                         }
                                         ?>
@@ -1022,7 +1022,7 @@ include('connect_db.php');
                                         <i class="ti-bag" ></i>
                                     </button>
                                     <a href="javascript:void(0)" title="Add to Wishlist">
-                                        <i class="ti-heart" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
                                     </a>
                                     <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                         <i class="ti-search" aria-hidden="true"></i>
@@ -1053,6 +1053,11 @@ include('connect_db.php');
                                 <button class="add-button add_cart" onclick = "window.location.href= cart.php" title="Add to cart">
                                     add to cart
                                 </button>
+                            </div>
+                            <div class="addtocart_btn">
+                            <button class="add-button"> <a class="addtocart_btn" href="confermation.php?id='.$product_name.'" style="color:white"></a>
+                                                Buy Now
+                            </button>
                             </div>
                         </div>
                     </div>';
@@ -1327,7 +1332,7 @@ include('connect_db.php');
                                                     <i class="ti-bag" ></i>
                                                 </button>
                                                 <a href="javascript:void(0)" title="Add to Wishlist">
-                                                    <i class="ti-heart" aria-hidden="true"></i>
+                                                    <i class="fa fa-heart" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                     <i class="ti-search" aria-hidden="true"></i>
@@ -1350,15 +1355,15 @@ include('connect_db.php');
                                             
                                             <span class="detail-price">Rs '.$final_cost.'<span>Rs '.$initial_cost.'
                                             <a href="favourite_1.php?id='.$product_name.'" title="Add to Wishlist">
-                                            <i class="ti-heart" aria-hidden="true"></i>
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
                                             </a></span></span>
                                         </div>
-                                        <div class="addtocart_btn">
-                                            <button class="add-button" title="Buy Now" style = "background-color:#ffaa1d">
-                                                Buy Now
-                                            </button>
+                                        <div class ="addtocart_btn">
+                                        <button class="add-button"><a class="addtocart_btn" href="confermation.php?id='.$product_name.'" style="color:white">Buy Now</a>
+                                        </button>
                                         </div>
-                                        <div class="">
+                                        <br>
+                                        <div class ="addtocart_btn">
                                         <button class="add-button"><a class="addtocart_btn" href="cart_1.php?id='.$product_name.'" style="color:white">Add to Cart</a>
                                         </button>
                                         </div>
@@ -3907,7 +3912,7 @@ include('connect_db.php');
 <!-- Add to setting bar end-->
 
  <!-- notification product -->
-  <div class="product-notification" id="dismiss">
+  <!-- <div class="product-notification" id="dismiss">
     <span  onclick="dismiss();" class="close" aria-hidden="true">×</span>
     <div class="media">
       <img class="mr-2" src="../assets/images/layout-6/product/5.jpg" alt="Generic placeholder image">
@@ -3916,7 +3921,7 @@ include('connect_db.php');
         Cras sit amet nibh libero, in gravida nulla.
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- notification product -->
 
 

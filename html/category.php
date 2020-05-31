@@ -1055,7 +1055,7 @@ include('connect_db.php');
                                 </button>
                             </div>
                             <div class="addtocart_btn">
-                            <button class="add-button"> <a class="addtocart_btn" href="confermation.php?id='.$product_name.'" style="color:white"></a>
+                            <button class="add-button"> <a class="addtocart_btn" href="checkout.php?id='.$product_name.'" style="color:white"></a>
                                                 Buy Now
                             </button>
                             </div>
@@ -1359,7 +1359,7 @@ include('connect_db.php');
                                             </a></span></span>
                                         </div>
                                         <div class ="addtocart_btn">
-                                        <button class="add-button"><a class="addtocart_btn" href="confermation.php?id='.$product_name.'" style="color:white">Buy Now</a>
+                                        <button class="add-button"><a class="addtocart_btn" href="checkout.php?id='.$product_name.'" style="color:white">Buy Now</a>
                                         </button>
                                         </div>
                                         <br>

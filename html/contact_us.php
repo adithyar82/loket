@@ -671,40 +671,40 @@
                 <h3 class="text-center mb-3">Get in touch</h3>
                 <!-- <p class="text-center mb-3" style="font-size:25px;">8095566699</p>
                 <p class="text-center mb-3" style="font-size:20px;">contact.azeempatel@gmail.com</p> -->
-                <form class="theme-form">
+                <form method = "POST" action = "register_1.php">
                     <div class="form-row">
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="name">First Name</label>
-                               <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                               <input type="text" class="form-control" id="name" name = "fname" placeholder="Enter Your name" required="">
                            </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                               <label for="email">Last Name</label>
-                              <input type="text" class="form-control" id="last-name" placeholder="Last Name" required="">
+                              <input type="text" class="form-control" id="last-name" name = "lname" placeholder="Last Name" required="">
                           </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="review">Phone number</label>
-                               <input type="text" class="form-control" id="review" placeholder="Enter your number" required="">
+                               <input type="text" class="form-control" id="review" name = "phone_number" placeholder="Enter your number" required="">
                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                <input type="text" class="form-control" id="email" name = "email_address" placeholder="Email" required="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div>
                                 <label for="review">Write Your Message</label>
-                                <textarea class="form-control" placeholder="Write Your Message" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                <textarea class="form-control" placeholder="Write Your Message" name = "comment" id="exampleFormControlTextarea1" rows="2"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button class="btn btn-normal" type="submit">Send E-mail</button>
+                            <input type = "submit" name = "submit" class="btn btn-normal">Send E-mail</button>
                         </div>
                     </div>
                 </form>

@@ -1,3 +1,23 @@
+<?php
+include('connect_db.php');
+$sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar269@gmail.com';";
+$result2 = $conn->query($sql2);
+if($result2->num_rows>=0){
+    while($row=$result2->fetch_assoc()){
+        $fname = $row['fname'];
+        $email_address = $row['email_address'];
+        $phone_number = $row['phone_number'];
+        $address_1 = $row['address_1'];
+        $address_2 = $row['address_2'];
+        $city = $row['city'];
+        $state = $row['state'];
+        $zipcode = $row['zipcode'];
+        $country = $row['country'];
+        $referral_code = $row['referral_code'];
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -660,7 +680,7 @@
                     <div>
                         <h2>profile</h2>
                         <h4>
-                            <input type="text" value="Referral" id="myInput" disabled>
+                            <input type="text" value="<?php echo $referral_code?>" id="myInput" disabled>
                             <button onclick="myFunction()"><i class="fa fa-share"></i></button>
                         </h4>
                         <br>
@@ -688,7 +708,7 @@
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="name">First Name</label>
-                               <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                               <input type="text" class="form-control" id="name" placeholder="Enter Your name" value = "<?php echo $fname?>" required="">
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -700,14 +720,14 @@
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="review">Phone number</label>
-                               <input type="text" class="form-control" id="review" placeholder="Enter your number" required="">
+                               <input type="text" class="form-control" id="review" placeholder="Enter your number" value = "<?php echo $phone_number?>"  required="">
                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                    <input type="text" class="form-control" id="email" placeholder="Email" value = "<?php echo $email_address?>" required="">
                                 </div>
                             </div>
                         </div>
@@ -735,19 +755,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="home-ploat">flat / plot</label>
-                                <input type="text" class="form-control" id="home-ploat" placeholder="company name" required="">
+                                <input type="text" class="form-control" id="home-ploat" value = "<?php echo $address_1?>" placeholder="company name" required="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="address-two">Address *</label>
-                                <input type="text" class="form-control" id="address-two" placeholder="Address" required="">
+                                <input type="text" class="form-control" id="address-two" value = "<?php echo $address_2?>" placeholder="Address" required="">
                             </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="zip-code">Zip Code *</label>
-                               <input type="text" class="form-control" id="zip-code" placeholder="zip-code" required="">
+                               <input type="text" class="form-control" id="zip-code" value = "<?php echo $zipcode?>" placeholder="zip-code" required="">
                            </div>
                         </div>
                         <div class="col-md-6 select_input">
@@ -764,13 +784,13 @@
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="city">City *</label>
-                               <input type="text" class="form-control" id="city" placeholder="City" required="">
+                               <input type="text" class="form-control" id="city" placeholder="City" value = "<?php echo $city?>" required="">
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                                <label for="region-state">Region/State *</label>
-                               <input type="text" class="form-control" id="region-state" placeholder="Region/state" required="">
+                               <input type="text" class="form-control" id="region-state" placeholder="Region/state" value = "<?php echo $state?>" required="">
                            </div>
                         </div>
                         <div class="col-md-12">

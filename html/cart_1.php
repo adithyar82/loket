@@ -11,6 +11,7 @@ if($result->num_rows>=0){
         $product_quantity = $row['product_quantity'];
         $product_image = $row['product_image'];
         $username = "Harshitha";
+        $product_quantity_1 = 1;
     }
 }
 $sql_2 = "SELECT * FROM items WHERE item_name = '$product_name';";
@@ -23,7 +24,7 @@ if($result_2->num_rows>0){
     <script>';
 }
 else{
-    $sql1 = "INSERT INTO items(id, item_name, username, item_price,initial_quantity, product_image, order_id) VALUES (Null, '$product_name', '$username', '$final_cost','$product_quantity','$product_image','$order_id');";
+    $sql1 = "INSERT INTO items(id, item_name, username, item_price,product_quantity,initial_quantity, product_image, order_id) VALUES (Null, '$product_name', '$username', '$final_cost','$product_quantity_1','$product_quantity','$product_image','$order_id');";
     $result1 = $conn->query($sql1);
     echo $sql1;
     echo $result1;

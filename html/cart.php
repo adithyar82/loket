@@ -712,6 +712,8 @@ $product_name = $_REQUEST['id'];
                                 $item_price = $row['item_price'];
                                 $initial_cost = $row['item_price'];
                                 $product_image = $row['product_image'];
+                                $initial_cost = $row['initial_quantity'];
+                                $initial_quantity = $row['initial_quantity'];
                                 echo'<tbody>
                                 <tr>
                                     <td>
@@ -733,27 +735,22 @@ $product_name = $_REQUEST['id'];
                                         </div>
                                     </td>
                                     <td>
-                                        <h2>'.$initial_cost.'</h2></td>
+                                        <h2>'.$item_price.'</h2></td>
                                     <td>
     
                                     
                                         <div class="qty-box">
                                             <div class="input-group">
-                                            <form action="/action_page.php">
+                                            <form>
                                                 <label for="cars"></label>
-                                                <select id="cars" name="cars">
-                                                    <option value="volvo">1</option>
-                                                    <option value="saab">2</option>
-                                                    <option value="fiat">3</option>
-                                                    <option value="audi">4</option>
-                                                    <option value="audi">5</option>
-                                                    <option value="audi">6</option>
-                                                    <option value="audi">7</option>
-                                                    <option value="audi">8</option>
-                                                    <option value="audi">9</option>
-                                                    <option value="audi">10</option>
-                                                </select>
+                                                <select id="cars" name="cars">';
+                                                 for ($i = 1; $i<=$initial_quantity;$i++){
+                                                        echo '<a href="abc.php"><option value="index.php?id='.$i.'">'.$i.'</option></a>';
+                                                } 
+                                                echo'</select>
+                                              
                                             </form>
+                                            
                                             </div>
                                         </div>
                                         
@@ -762,6 +759,9 @@ $product_name = $_REQUEST['id'];
                                     </div>
                                     
                             </td>
+    
+                                    
+                                        
                             <td><a href="favourite_2.php?id='.$product_name.'"><i class="fa fa-heart" ></i></a></td>
                             
                             

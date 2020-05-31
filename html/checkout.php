@@ -1,11 +1,14 @@
 <?php
 session_start();
 include('connect_db.php');
-$order_id = $_SESSION['order_id'];
-$sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar007@gmail.com';";
+$product_name = $_REQUEST['id'];
+$sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar269@gmail.com';";
 $result2 = $conn->query($sql2);
-if($result2->num_rows>0){
+if($result2->num_rows>=0){
     while($row=$result2->fetch_assoc()){
+        $fname = $row['fname'];
+        $email_address = $row['email_address'];
+        $phone_number = $row['phone_number'];
         $address_1 = $row['address_1'];
         $address_2 = $row['address_2'];
         $city = $row['city'];
@@ -695,7 +698,7 @@ echo $sql;
 
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <label>First Name</label>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="text" name="field-name" value="<?php echo $fname?>" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <label>Last Name</label>
@@ -703,11 +706,11 @@ echo $sql;
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <label class="field-label">Phone</label>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="text" name="field-name" value="<?php echo $phone_number?>" placeholder="">
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <label class="field-label">Email Address</label>
-                                        <input type="text" name="field-name" value="" placeholder="">
+                                        <input type="text" name="field-name" value="<?php echo $email_address?>" placeholder="">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <label class="field-label">Country</label>
@@ -720,7 +723,7 @@ echo $sql;
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <label class="field-label">Address</label>
-                                        <input type="text" name="field-name" value="<?php echo $address_1.' '.$address_2?>" placeholder="Street address">
+                                        <input type="text" name="field-name" value="<?php echo $address_1?>" placeholder="Street address">
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <label class="field-label">Town/City</label>
@@ -748,7 +751,7 @@ echo $sql;
                                         <div>Product <span>Total</span></div>
                                     </div>
                                     <?php
-                                    $sql = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $sql = "SELECT * FROM products WHERE product_name = '$product_name';";
                                     $result = $conn->query($sql);
                                     if($result->num_rows>0){
                                         while($row = $result->fetch_assoc()){

@@ -19,6 +19,29 @@ if($result2->num_rows>=0){
     }
 }
 echo $sql;
+$sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+    $result_2 = $conn->query($sql_2);
+    if($result_2->num_rows>0){
+        while($row = $result_2->fetch_assoc()){
+            $delivery_status = $row['delivery_status'];
+            if($delivery_status == 0){
+                echo '<script>
+                setTimeout(function () { 
+                    swal({
+                    title: "Availability",
+                    text: "Currently there are no delivery boys available in your locality",
+                    type: "",
+                    confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                    if (isConfirm) {
+                        window.location.href = "category.php?id='.$product_name.'";;
+                    }
+                    }); }, 1000);
+                </script>';
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +76,8 @@ echo $sql;
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"> 
 </head>
 <body>
 

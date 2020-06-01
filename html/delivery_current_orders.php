@@ -1,3 +1,12 @@
+<?php
+include('connect_db.php');
+$lat = $_REQUEST['lat'];
+$long = $_REQUEST['long'];
+$username = "harshitha";
+$sql = "INSERT INTO delivery_location(username, delivery_x, delivery_y, timestamp) VALUES('$username', '$lat', '$long', CURRENT_TIME());";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,47 +1,42 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (p) {
-        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-        var abc = "abc"
-        <?php
-         $latlng = p.coords.latitude;
-        ?>
-        var mapOptions = {
-            center: LatLng,
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-        var marker = new google.maps.Marker({
-            position: LatLng,
-            map: map,
-            title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
-        });
-        google.maps.event.addListener(marker, "click", function (e) {
-            var infoWindow = new google.maps.InfoWindow();
-            infoWindow.setContent(marker.title);
-            infoWindow.open(map, marker);
-        });
-    });
-} else {
-    alert('Geo Location feature is not supported in this browser.');
-}
-</script>
-<div id="dvMap" style="width: 500px; height: 500px">
-<?php echo $variable = "<script>document.write(LatLng)</script>"; //I want above javascript variable 'a' value to be store here 
-echo $abc;
-?>
+﻿<?php
+    include('connect_db.php');
+    $zipcode="573201";
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$zipcode."&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+    $details=file_get_contents($url);
+    $result = json_decode($details,true);
+   
+    $lat=$result['results'][0]['geometry']['location']['lat'];
 
-</div>
-<?php
-echo $latlng;
-?>
-</body>
-</html>
+    $lng=$result['results'][0]['geometry']['location']['lng'];
+    echo $url;
+    echo "Latitude :" .$lat;
+    echo '<br>';
+    echo "Longitude :" .$lng;
+    $lat1 = 12.6296231;
+    $lng1 = 75.83015371;
+    $sql = "INSERT INTO location(user_x, user_y) VALUES('$lat', '$lng');";
+    $result = $conn->query($sql);
+    echo $result;
+    echo $sql;
+    $hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$lat,$lng&destinations=$lat1%2C$lng1&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+						$data = file_get_contents($hmaps_request);
+						$data = json_decode($data);
+							$time = 0;
+							$distance = 0;
+							foreach($data->rows[0]->elements as $road) {
+								$time += $road->duration->text;
+								$distance += $road->distance->text;
+							}
+							$distance_1=$distance;
+							$time_1 = $table[1];
+							$distance_2 = $distance_1 * 1.609; 
+                            $time_2 = $time_1 + 15;
+                            // echo $distance;
+                            // echo $time;
+                            echo $distance_2;
+                            echo"<br>";
+                            echo $time_2;
+                        
+   
+    ?>
+    

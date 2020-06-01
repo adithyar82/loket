@@ -1,12 +1,3 @@
-<?php
-include('connect_db.php');
-$lat = $_REQUEST['lat'];
-$long = $_REQUEST['long'];
-$username = "harshitha";
-$sql = "INSERT INTO delivery_location(username, delivery_x, delivery_y, timestamp) VALUES('$username', '$lat', '$long', CURRENT_TIME());";
-$result = $conn->query($sql);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +31,19 @@ $result = $conn->query($sql);
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
+
+<script>
+
+    function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    }
+
+</script>
 </head>
 <body class="bg-light">
 
@@ -656,11 +660,11 @@ $result = $conn->query($sql);
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>Current Orders</h2>
+                        <h2>Availability Page</h2>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">Current Orders</a></li>
+                            <li><a href="#">Availability Page</a></li>
                         </ul>
                     </div>
                 </div>
@@ -675,140 +679,84 @@ $result = $conn->query($sql);
     <div class="custom-container">
         <div class="row">
             <div class="col-12">
-                <div class="row">
-
-                    <div class="col-xl-6 ">
-                        <div class="blog-left">
-                        <div class="row product_image_4">
-
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/001.jpg" alt="" class="img-fluid  ">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/002.jpg" alt="" class="img-fluid   ">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/003.jpg" alt="" class="img-fluid  ">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/004.jpg" alt="" class="img-fluid  ">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br>
-                        <br>    
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 ">
-                        <div class="blog-right">
-                            <div>
-                                <p style="font-size:25px;">Order-Id : 12345</p>
-                                <p style="font-size:23px;">Product List : ****</p>
-                                <p style="font-size:23px;">Order Total Cost : Rs.</p>
-                                <br>
-                                <p style="font-size:20px;">Pick-Up Location :</p>
-                                <p style="font-size:20px;">Drop Location :</p>
-                                <br>
-                                <p style="font-size:18px;">Order Status Updation :</p>
-                                <br>
-                                <ul>
+                <div class="blog-media">
+                    
+                        <div class="blog-right text-center">
+                            
+                                <form method = "POST" action = "login_1.php">
+                                    <ul>
+                                        <li><input type="text" class="form-control" name = "zipcode" id="zipcode" placeholder="Zip Code" required=""></li>
+                                        <br><br><li><input class="btn btn-rounded btn-outline" type = "submit" name = "submit"></li>
                                     <li>
-                                        <a class="btn btn-rounded btn-outline">
-                                            Accept Order
-                                        </a>
+                                    <a class="btn btn-rounded btn-outline" onclick="myFunction()">
+                                        Enter New Address
+                                    </a>
                                     </li>
-                                </ul>
-                                <br>
-                                <div class="border-product pb-0">
-                                    <p style="font-size:15px;">Time Left For Delivery :</p>
-                                    <br>
-                                    <div class="timer">
-                                        <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    </ul>
+                                        <div id="myDIV" style="text-align:center;">
+                                        <div class="custom-container">
+                                            <div class="checkout-page contact-page">
+                                                <div class="checkout-form">
+                                                    
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-sm-12 col-xs-12">
+                                                                <div class="theme-form">
+                                                                    <div class="row check-out ">
 
-                <div class="row blog-media">
-                    <div class="col-xl-6 ">
-                        <div class="blog-left">
-                            <a href="#"><img src="../assets/images/blog/2.jpg" class="img-fluid  " alt="blog"></a>
-                            <div class="date-label">
-                                26 nov 2019
-                            </div>
+                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                                            <label>First Name</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                                            <label>Last Name</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                                            <label class="field-label">Phone</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                                            <label class="field-label">Email Address</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                                            <label class="field-label">City</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                                            <label class="field-label">State</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                                                            <label class="field-label">Country</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                                                            <label class="field-label">Postal Code</label>
+                                                                            <input type="text" name="field-name" value="" placeholder="">
+                                                                        </div>
+                                                                        <input class="btn btn-rounded btn-block" type = "submit" name = "submit">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                
+                                <br>
+                                <br>
+                            <ul>
+                                <p class="text-center" style="font-size:25px;">Select Delivery Address</p><br>
+                                <li><p style="font-size:20px;">First Name<br>address line 1<br>address line 2<br>City<br>State<br>Country&emsp;-&emsp;Zipcode</p></li>
+                                <li><p style="font-size:20px;">First Name<br>address line 1<br>address line 2<br>City<br>State<br>Country&emsp;-&emsp;Zipcode</p></li>
+                                <li><p style="font-size:20px;">First Name<br>address line 1<br>address line 2<br>City<br>State<br>Country&emsp;-&emsp;Zipcode</p></li>
+                                    </form>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="col-xl-6 ">
-                        <div class="blog-right">
-                            <div>
-                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
-                                <ul class="post-social">
-                                    <li>Posted By : Admin Admin</li>
-                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                </ul>
-                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row blog-media">
-                    <div class="col-xl-6 ">
-                        <div class="blog-left">
-                            <a href="#"><img src="../assets/images/blog/3.jpg" class="img-fluid  " alt="blog"></a>
-                            <div class="date-label">
-                                26 nov 2019
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 ">
-                        <div class="blog-right">
-                            <div>
-                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
-                                <ul class="post-social">
-                                    <li>Posted By : Admin Admin</li>
-                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                </ul>
-                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row blog-media">
-                    <div class="col-xl-6 ">
-                        <div class="blog-left">
-                            <a href="#"><img src="../assets/images/blog/4.jpg" class="img-fluid  " alt="blog"></a>
-                            <div class="date-label">
-                                26 nov 2019
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 ">
-                        <div class="blog-right">
-                            <div>
-                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
-                                <ul class="post-social">
-                                    <li>Posted By : Admin Admin</li>
-                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
-                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
-                                </ul>
-                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

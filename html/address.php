@@ -689,13 +689,11 @@
                                     <ul>
                                         <li><input type="text" class="form-control" name = "zipcode" id="zipcode" placeholder="Zip Code" value = "<?php echo $zipcode?>"required=""></li>
                                         <br><br><li><input class="btn btn-rounded btn-outline" type = "submit" name = "submit"></li>
-                                    <li>
-                                   
-                                    
-                                        <a class="btn btn-rounded btn-outline" onclick="myFunction()">
-                                        Enter New Address
-                                    </a>
-                                    </li>
+                                        <li>
+                                            <a class="btn btn-rounded btn-outline" onclick="myFunction()">
+                                                Enter New Address
+                                            </a>
+                                        </li>
 
                                     </ul>
                                     <?php

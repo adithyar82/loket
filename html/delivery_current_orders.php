@@ -677,71 +677,75 @@ $result = $conn->query($sql);
             <div class="col-12">
                 <div class="row">
 
-                    <div class="col-xl-6 ">
-                        <div class="blog-left">
-                        <div class="row product_image_4">
+                    
+                    <?php
+                    $sql1 = "SELECT * FROM order_status WHERE status  = 'ordered';";
+                    $result1 = $conn->query($sql1);
+                    if($result1->num_rows>0){
+                        while($row=$result1->fetch_assoc()){
+                            $product_image = $row['product_image'];
+                            $product_name = $row['product_name'];
+                            $final_cost = $row['final_cost'];
+                            $order_id = $row['item_id'];
+                            $shop_id = $row['shop_id'];
+                            $sql2 = "SELECT * FROM shops WHERE shop_id = '$shop_id';";
+                            $result2 = $conn->query($sql2);
+                            if($result2->num_rows>0){
+                                while($row=$result2->fetch_assoc()){
+                                    $shop_name = $row['shop_name'];
+                                    $address_1 = $row['address_1'];
+                                    $address_2 = $row['address_2'];
+                                    $city = $row['city'];
+                                    $state = $row['state'];
+                                    $zipcode = $row['zipcode'];
+                                }
+                            }
 
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/001.jpg" alt="" class="img-fluid  ">
-                                </div>
+                            echo'
                             </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/002.jpg" alt="" class="img-fluid   ">
-                                </div>
+                            <br>
+                            <br>    
                             </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/003.jpg" alt="" class="img-fluid  ">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <img src="../assets/images/product-sidebar/004.jpg" alt="" class="img-fluid  ">
-                                </div>
-                            </div>
-
                         </div>
-                        <br>
-                        <br>    
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6 ">
-                        <div class="blog-right">
-                            <div>
-                                <p style="font-size:25px;">Order-Id : 12345</p>
-                                <p style="font-size:23px;">Product List : ****</p>
-                                <p style="font-size:23px;">Order Total Cost : Rs.</p>
-                                <br>
-                                <p style="font-size:20px;">Pick-Up Location :</p>
-                                <p style="font-size:20px;">Drop Location :</p>
-                                <br>
-                                <p style="font-size:18px;">Order Status Updation :</p>
-                                <br>
-                                <ul>
-                                    <li>
-                                        <a class="btn btn-rounded btn-outline">
-                                            Accept Order
-                                        </a>
-                                    </li>
-                                </ul>
-                                <br>
-                                <div class="border-product pb-0">
-                                    <p style="font-size:15px;">Time Left For Delivery :</p>
+    
+                        <div class="col-xl-8 ">
+                            <div class="blog-right">
+                                <div>
+                                    <p style="font-size:25px;">Order-Id : '.$order_id.'</p>
+                                    <p style="font-size:23px;">Product Name : ',$product_name.'</p>
+                                    <p style="font-size:23px;">Order Total Cost : Rs. '.$final_cost.'</p>
                                     <br>
-                                    <div class="timer">
-                                        <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
-                                        </p>
+                                    <p style="font-size:20px;">Pick-Up Location : '.$address_1.$address_2.','.$city.','.$state.' - '.$zipcode.'</p>
+                                    <p style="font-size:20px;">Drop Location :</p>
+                                    <br>
+                                    <p style="font-size:18px;">Order Status Updation :</p>
+                                    <br>
+                                    <ul>
+                                        <li>
+                                            <a class="btn btn-rounded btn-outline" href="delivery_my_orders.php?id='.$order_id.'&id1=order_accepted">
+                                                Accept Order
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <div class="border-product pb-0">
+                                        <p style="font-size:15px;">Time Left For Delivery :</p>
+                                        <br>
+                                        <div class="timer">
+                                            <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>';
+                            
+                        }
+                    }
+                       ?> 
                 </div>
 
-                <div class="row blog-media">
+                <!-- <div class="row blog-media">
                     <div class="col-xl-6 ">
                         <div class="blog-left">
                             <a href="#"><img src="../assets/images/blog/2.jpg" class="img-fluid  " alt="blog"></a>
@@ -809,7 +813,7 @@ $result = $conn->query($sql);
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

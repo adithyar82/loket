@@ -799,7 +799,7 @@ include('connect_db.php');
                                             $individual_image = $row['individual_image'];
                                             $discount = ($initial_cost - $final_cost)/($initial_cost) * 100;
                                             echo '<div class="media">
-                                             <a href=""><img class="img-fluid " src="'.$individual_image.'" alt=""></a>
+                                             <a href=""><img class="img-fluid " src="../assets/images/collection/BigDeal_images/602-402/groceries.jpg" alt=""></a>
                                             <div class="media-body align-self-center">
                                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="product-page(no-sidebar).html"><h6>'.$product_name.'</h6></a>
                                                 <h4>'.$final_cost.'</h4></div>

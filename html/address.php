@@ -682,17 +682,27 @@
                 <div class="blog-media">
                     
                         <div class="blog-right text-center">
-                            
-                                <form method = "POST" action = "login_1.php">
+                                <?php
+                                $zipcode = $_REQUEST['id2'];
+                                ?>
+                                <form method = "POST" action = "check_availability.php">
                                     <ul>
-                                        <li><input type="text" class="form-control" name = "zipcode" id="zipcode" placeholder="Zip Code" required=""></li>
+                                        <li><input type="text" class="form-control" name = "zipcode" id="zipcode" placeholder="Zip Code" value = "<?php echo $zipcode?>"required=""></li>
                                         <br><br><li><input class="btn btn-rounded btn-outline" type = "submit" name = "submit"></li>
                                     <li>
-                                    <a class="btn btn-rounded btn-outline" onclick="myFunction()">
+                                   
+                                    
+                                        <a class="btn btn-rounded btn-outline" onclick="myFunction()">
                                         Enter New Address
                                     </a>
                                     </li>
+
                                     </ul>
+                                    <?php
+                                    $availability = $_REQUEST['id1'];
+                                    $zipcode = $_REQUEST['id2'];
+                                    if($availability == 1){
+                                        echo'
                                         <div id="myDIV" style="text-align:center;">
                                         <div class="custom-container">
                                             <div class="checkout-page contact-page">
@@ -744,7 +754,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
+                                        </div>';
+
+                                    }
+                                    ?>
+                                    
                                 
                                 <br>
                                 <br>

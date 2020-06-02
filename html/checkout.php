@@ -2,6 +2,7 @@
 session_start();
 include('connect_db.php');
 $product_name = $_REQUEST['id'];
+$availability = $_REQUEST['id1'];
 $sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar269@gmail.com';";
 $result2 = $conn->query($sql2);
 if($result2->num_rows>=0){
@@ -19,29 +20,31 @@ if($result2->num_rows>=0){
     }
 }
 echo $sql;
-$sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
-    $result_2 = $conn->query($sql_2);
-    if($result_2->num_rows>0){
-        while($row = $result_2->fetch_assoc()){
-            $delivery_status = $row['delivery_status'];
-            if($delivery_status == 0){
-                echo '<script>
-                setTimeout(function () { 
-                    swal({
-                    title: "Availability",
-                    text: "Currently there are no delivery boys available in your locality",
-                    type: "",
-                    confirmButtonText: "OK"
-                    },
-                    function(isConfirm){
-                    if (isConfirm) {
-                        window.location.href = "category.php?id='.$product_name.'";;
-                    }
-                    }); }, 1000);
-                </script>';
-            }
-        }
-    }
+$order_id = rand(11111111,99999999);
+$_SESSION['order_id'] = $order_id;
+// $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
+//     $result_2 = $conn->query($sql_2);
+//     if($result_2->num_rows>0){
+//         while($row = $result_2->fetch_assoc()){
+//             $delivery_status = $row['delivery_status'];
+//             if($delivery_status == 0){
+//                 echo '<script>
+//                 setTimeout(function () { 
+//                     swal({
+//                     title: "Availability",
+//                     text: "Currently there are no delivery boys available in your locality",
+//                     type: "",
+//                     confirmButtonText: "OK"
+//                     },
+//                     function(isConfirm){
+//                     if (isConfirm) {
+//                         window.location.href = "category.php?id='.$product_name.'";;
+//                     }
+//                     }); }, 1000);
+//                 </script>';
+//             }
+//         }
+//     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -783,6 +786,8 @@ $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
                                             $product_name = $row['product_name'];
                                             $product_quantity = $row['product_quantity'];
                                             $final_cost = $row['final_cost'];
+                                            $product_image = $row['product_image'];
+                                            $status = "ordered";
                                             echo '<ul class="qty">
                                             <li>'.$product_name.' × 1 <span>Rs '.$final_cost.'</span></li>
                                             
@@ -790,6 +795,8 @@ $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
                                         }
                                     }
                                     $total_cost = $final_cost + 20;
+                                    $sql1 = "INSERT INTO order_status(item_id,initial_cost,fname,final_cost,product_name,final_cost, product_quantity, status, product_image) VALUES('$order_id','$final_cost','$fname','$final_cost','$product_quantity','$status','$product_image');";
+                                    $result1 = $conn->query($sql1);
                                     ?>
                                     <ul class="sub-total">
                                         <li>Subtotal <span class="count">Rs <?php echo $final_cost?></span></li>
@@ -818,7 +825,7 @@ $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
                                     <div class="upper-box">
                                         <div class="payment-options">
                                             <ul>
-                                                <li>
+                                                <!-- <li>
                                                     <div class="radio-option">
                                                         <input type="radio" name="payment-group" id="payment-1" checked="checked">
                                                         <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
@@ -835,16 +842,33 @@ $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
                                                         <input type="radio" name="payment-group" id="payment-3">
                                                         <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt=""></span></label>
                                                     </div>
+                                                </li> -->
+                                                <li>
                                                 </li>
-                                            </ul>
+                                            
                                         </div>
+                                        </form>
                                     </div>
-                                    <div class="text-right"><a href="#" class="btn-normal btn">Place Order</a></div>
+                                    <?php
+                                    if($availability != 1){
+                                        echo'<form method = "POST" action = "check_availability.php">
+                                        <li><input type="text" class="form-control" name = "zipcode" id="zipcode" style = "width:500px;" placeholder="Enter Zipcode To Check Availability" required=""></li>
+                                        <li><input type="text" class="form-control" name = "product_name" id="product_name" value= "'. $product_name.'" style = "width:500px;" hidden></li>
+                                            <li><input class="btn btn-rounded btn-outline" type = "submit" name = "submit"></li>
+                                            
+                                        </form>';
+                                    }
+                                    else{
+                                        echo    '<div class="text-right"><a href="test.php" class="btn-normal btn">Proceed to Payment</a></div>';
+                                    }
+                                    ?>
+                                </ul>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+               
             </div>
         </div>
     </div>

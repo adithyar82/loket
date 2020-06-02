@@ -1,52 +1,3 @@
-<?php
-session_start();
-include('connect_db.php');
-$product_name = $_REQUEST['id'];
-$availability = $_REQUEST['id1'];
-$sql2 = "SELECT * FROM Users where email_address = 'harshithaeshwar269@gmail.com';";
-$result2 = $conn->query($sql2);
-if($result2->num_rows>=0){
-    while($row=$result2->fetch_assoc()){
-        $fname = $row['fname'];
-        $email_address = $row['email_address'];
-        $phone_number = $row['phone_number'];
-        $address_1 = $row['address_1'];
-        $address_2 = $row['address_2'];
-        $city = $row['city'];
-        $state = $row['state'];
-        $zipcode = $row['zipcode'];
-        $country = $row['country'];
-
-    }
-}
-echo $sql;
-$order_id = rand(11111111,99999999);
-$_SESSION['order_id'] = $order_id;
-// $sql_2 = "SELECT MIN(status) as delivery_status FROM delivery_log;";
-//     $result_2 = $conn->query($sql_2);
-//     if($result_2->num_rows>0){
-//         while($row = $result_2->fetch_assoc()){
-//             $delivery_status = $row['delivery_status'];
-//             if($delivery_status == 0){
-//                 echo '<script>
-//                 setTimeout(function () { 
-//                     swal({
-//                     title: "Availability",
-//                     text: "Currently there are no delivery boys available in your locality",
-//                     type: "",
-//                     confirmButtonText: "OK"
-//                     },
-//                     function(isConfirm){
-//                     if (isConfirm) {
-//                         window.location.href = "category.php?id='.$product_name.'";;
-//                     }
-//                     }); }, 1000);
-//                 </script>';
-//             }
-//         }
-//     }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,24 +31,8 @@ $_SESSION['order_id'] = $order_id;
 
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/color3.css" media="screen" id="color">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"> 
-
-    <script>
-
-    function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-    }
-
-    </script>
-
 </head>
-<body>
+<body class="bg-light">
 
 <!-- loader start -->
 <div class="loader-wrapper">
@@ -712,11 +647,11 @@ $_SESSION['order_id'] = $order_id;
             <div class="col">
                 <div class="breadcrumb-contain">
                     <div>
-                        <h2>checkout</h2>
+                        <h2>blog</h2>
                         <ul>
                             <li><a href="#">home</a></li>
                             <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="#">checkout</a></li>
+                            <li><a href="#">blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -727,230 +662,123 @@ $_SESSION['order_id'] = $order_id;
 <!-- breadcrumb End -->
 
 <!-- section start -->
-<section class="section-big-py-space bg-light">
+<section class="section-big-py-space blog-page ratio2_3">
     <div class="custom-container">
-        <div class="checkout-page contact-page">
-            <div class="checkout-form">
-                <form>
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12 col-xs-12">
-                            <div class="checkout-title">
-                                <h3>Billing Details</h3></div>
-                            <div class="theme-form">
-                                <div class="row check-out ">
-
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label>First Name</label>
-                                        <input type="text" name="field-name" value="<?php echo $fname?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label>Last Name</label>
-                                        <input type="text" name="field-name" value="" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label class="field-label">Phone</label>
-                                        <input type="text" name="field-name" value="<?php echo $phone_number?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label class="field-label">Email Address</label>
-                                        <input type="text" name="field-name" value="<?php echo $email_address?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <label class="field-label">Country</label>
-                                        <select>
-                                            <option>India</option>
-                                            <option>South Africa</option>
-                                            <option>United State</option>
-                                            <option>Australia</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <label class="field-label">Address</label>
-                                        <input type="text" name="field-name" value="<?php echo $address_1?>" placeholder="Street address">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <label class="field-label">Town/City</label>
-                                        <input type="text" name="field-name" value="<?php echo $city?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                        <label class="field-label">State / County</label>
-                                        <input type="text" name="field-name" value="<?php echo $state?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                        <label class="field-label">Postal Code</label>
-                                        <input type="text" name="field-name" value="<?php echo $zipcode?>" placeholder="">
-                                    </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <ul>
-                                        <li><input type="checkbox" name="shipping-option" id="account-option"> &ensp;</li>
-                                        <li><label for="account-option">Same Shipping Details</label></li>
-                                        &emsp;&emsp;
-                                        <li>
-                                            <a class="btn btn-rounded btn-outline" onclick="myFunction()">
-                                                Enter New Address
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <br>
-                                    <div id="myDIV" style="text-align:center;">
-                                        <div class="custom-container">
-                                            <div class="checkout-page contact-page">
-                                                <div class="checkout-form">
-                                                    
-                                                        <div class="row">
-                                                            <!-- <div class="col-lg-6 col-sm-12 col-xs-12"> -->
-                                                                <div class="theme-form">
-                                                                    <div class="row check-out ">
-
-                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                            <label>First Name</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                            <label>Last Name</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                            <label class="field-label">Phone</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                            <label class="field-label">Email Address</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                            <label class="field-label">City</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                            <label class="field-label">State</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                                                            <label class="field-label">Country</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                                                            <label class="field-label">Postal Code</label>
-                                                                            <input type="text" name="field-name" value="" placeholder="">
-                                                                        </div>
-                                                                        <input class="btn btn-rounded btn-block" type = "submit" name = "submit">
-                                                                    </div>
-                                                                </div>
-                                                            <!-- </div> -->
-                                                        </div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <?php
+                            // require_once("./loadEnvironmentals.php");
+                            
+                            // echo $uname;
+                            include('connect_db.php');
+                            // echo $user_id;
+                            $sql = "SELECT  * FROM payment";
+                            $result = $conn->query($sql);
+                            echo "<div class='w3-container table-responsive'>
+                                  <table class = 'w3-table-all table table-bordered table-sm' id='dtBasicExample'>
+                                  <thead><tr><th class='th-sm'>Order Id </th><th class='th-sm'>Product Name</th><th class='th-sm'>Transaction Id</th><th class='th-sm'>Total Cost</th><th class='th-sm'> Name</th><th class='th-sm'>Payment Status</th><th class='th-sm'></th></tr></thead><tbody>";
+                                  if ($result->num_rows >= 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                                echo "<tr><td>{$row['order_id']}</td><td>{$row['product_name']}</td><td>{$row['transaction_id']}</td><td>{$row['final_cost']}</td><td>{$row['fname']}</td><td>{$row['status']}</td><td></td></tr>"; 
+                                    }
+                                }
+                                        echo "</tbody></table>
+                                            </div>";
+                            ?>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12 col-xs-12">
-                            <div class="checkout-details theme-form  section-big-mt-space">
-                                <div class="order-box">
-                                    <div class="title-box">
-                                        <div>Product <span>Total</span></div>
-                                    </div>
-                                    <?php
-                                    $sql = "SELECT * FROM products WHERE product_name = '$product_name';";
-                                    $result = $conn->query($sql);
-                                    if($result->num_rows>0){
-                                        while($row = $result->fetch_assoc()){
-                                            $product_name = $row['product_name'];
-                                            $product_quantity = $row['product_quantity'];
-                                            $final_cost = $row['final_cost'];
-                                            $product_image = $row['product_image'];
-                                            $status = "ordered";
-                                            echo '<ul class="qty">
-                                            <li>'.$product_name.' × 1 <span>Rs '.$final_cost.'</span></li>
-                                            
-                                            </ul>';
-                                        }
-                                    }
-                                    $total_cost = $final_cost + 20;
-                                    $sql1 = "INSERT INTO order_status(item_id,initial_cost,fname,final_cost,product_name,final_cost, product_quantity, status, product_image) VALUES('$order_id','$final_cost','$fname','$final_cost','$product_quantity','$status','$product_image');";
-                                    $result1 = $conn->query($sql1);
-                                    ?>
-                                    <ul class="sub-total">
-                                        <li>Subtotal <span class="count">Rs <?php echo $final_cost?></span></li>
-                                        <li>Shipping
-                                            <div class="shipping">
-                                                <div class="shopping-option">
-                                                    
-                                                    <label for="local-pickup">Rs 20</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>Tax
-                                            <div class="shipping">
-                                                <div class="shopping-option">
-                                                    
-                                                    <label for="local-pickup"></label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="total">
-                                        <li>Total <span class="count">Rs <?php echo $total_cost?></span></li>
-                                    </ul>
-                                </div>
-                                <div class="payment-box">
-                                    <div class="upper-box">
-                                        <div class="payment-options">
-                                            <ul>
-                                                <!-- <li>
-                                                    <div class="radio-option">
-                                                        <input type="radio" name="payment-group" id="payment-1" checked="checked">
-                                                        <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="radio-option">
-                                                        <input type="radio" name="payment-group" id="payment-2">
-                                                        <label for="payment-2">Cash On Delivery<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="radio-option paypal">
-                                                        <input type="radio" name="payment-group" id="payment-3">
-                                                        <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt=""></span></label>
-                                                    </div>
-                                                </li> -->
-                                                <li>
-                                                </li>
-                                            
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <?php
-                                    if($availability != 1){
-                                        echo'<form method = "POST" action = "check_availability.php">
-                                        <li><input type="text" class="form-control" name = "zipcode" id="zipcode" style = "width:350px;" placeholder="Enter Zipcode To Check Availability" required=""></li>
-                                        <li><input type="text" class="form-control" name = "product_name" id="product_name" value= "'. $product_name.'" style = "width:500px;" hidden></li>&emsp;&emsp;&emsp;
-                                        <li><input class="btn btn-rounded btn-outline" type = "submit" name = "submit"></li>
-                                            
-                                        </form>';
-                                    }
-                                    else{
-                                        echo    '<div class="text-right"><a href="test.php" class="btn-normal btn">Proceed to Payment</a></div>';
-                                    }
-                                    ?>
-                                </ul>
-                                    
-                                </div>
+                              <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+                              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                                <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+                              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+                              <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+                              <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                              <script type="text/javascript">
+                                $(document).ready(function () {
+                                  $('#dtBasicExample').DataTable({
+                                    "searching": true
+                                  });
+                                  $('.dataTables_length').addClass('bs-select');
+                                });
+                              </script> 
+                </div>
+                <!-- <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/2.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
                             </div>
                         </div>
                     </div>
-               
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/3.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row blog-media">
+                    <div class="col-xl-6 ">
+                        <div class="blog-left">
+                            <a href="#"><img src="../assets/images/blog/4.jpg" class="img-fluid  " alt="blog"></a>
+                            <div class="date-label">
+                                26 nov 2019
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ">
+                        <div class="blog-right">
+                            <div>
+                                <a href="#"><h4>you how all this mistaken idea of denouncing pleasure and praising pain was born.</h4> </a>
+                                <ul class="post-social">
+                                    <li>Posted By : Admin Admin</li>
+                                    <li><i class="fa fa-heart"></i> 5 Hits</li>
+                                    <li><i class="fa fa-comments"></i> 10 Comment</li>
+                                </ul>
+                                <p>Consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
 </section>
-<!-- section end -->
-
+<!-- Section ends -->
 
 <!--footer start-->
 <footer class="footer-2">
@@ -962,7 +790,7 @@ $_SESSION['order_id'] = $order_id;
                         <div class="col-lg-4 col-md-12 pr-lg-0">
                             <div class="footer-left">
                                 <div class="footer-logo">
-                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid" alt="logo">
+                                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid   " alt="logo">
                                 </div>
                                 <div class="footer-detail">
                                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,</p>
@@ -1371,21 +1199,21 @@ $_SESSION['order_id'] = $order_id;
 <!-- Add to setting bar end-->
 
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
 
-<!-- menu js-->
-<script src="../assets/js/menu.js"></script>
+<!-- slick js-->
+<script src="../assets/js/slick.js"></script>
 
 <!-- popper js-->
 <script src="../assets/js/popper.min.js" ></script>
 
-<!-- slick js-->
-<script  src="../assets/js/slick.js"></script>
-
 <!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js" ></script>
+<script src="../assets/js/bootstrap.js"></script>
+
+<!-- Timer js-->
+<script src="../assets/js/menu.js"></script>
 
 <!-- Theme js-->
-<script src="../assets/js/script.js" ></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php
+include('connect_db.php');
+$order_id = $_REQUEST['id'];
+$order_status = $_REQUEST['id1'];
+$sql = "UPDATE order_status SET status = '$order_status' WHERE item_id = '$order_id';";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -663,259 +670,142 @@
 
 
 <!-- section start -->
-<section class="compare-padding section-big-py-space bg-light">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="compare-page">
-                    <div class="table-wrapper table-responsive">
-                        <h2>Order Number : 1</h2>
-                        <ul>
-                            <li>
-                                <a class="btn btn-rounded btn-outline">
-                                    On The Way
-                                </a>
-                            </li>
-                            <li>
-                                <a class="btn btn-rounded btn-outline">
-                                    Delivered
-                                </a>
-                            </li>
-                            <li>
-                                <div class="border-product pb-0">
-                                    <br>
-                                    <div class="timer">
-                                        <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
-                                        </p>
+<?php
+$sql1 = "SELECT * FROM order_status WHERE status = 'order_accepted';";
+$result1 = $conn->query($sql1);
+if($result1->num_rows>0){
+    while($row=$result1->fetch_assoc()){
+        $order_id = $row['item_id'];
+        echo'<section class="compare-padding section-big-py-space bg-light">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="compare-page">
+                        <div class="table-wrapper table-responsive">
+                            <h2>Order Number : '.$order_id.'</h2>
+                            <ul>
+                                <li>
+                                    <a href = "delivery_my_orders_1.php?id='.$order_id.'&id1=order_collected"class="btn active btn-rounded btn-outline">
+                                        On The Way
+                                    </a>
+                                </li>
+                                <li>
+                                <a href = "delivery_order_history.php?id='.$order_id.'&id1=delivered"class="btn active btn-rounded btn-outline">
+                                        Delivered
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="border-product pb-0">
+                                        <br>
+                                        <div class="timer">
+                                            <p id="demo"><span>25 <span class="padding-l">:</span> <span class="timer-cal">Days</span> </span><span>22 <span class="padding-l">:</span> <span class="timer-cal">Hrs</span> </span><span>13 <span class="padding-l">:</span> <span class="timer-cal">Min</span> </span><span>57 <span class="timer-cal">Sec</span></span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <br>
-                        <table class="table">
-                            <thead>
-                            <tr class="th-compare">
-                                <td>Order Id</td>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody id="table-compare">
-                            <tr>
-                                <th class="product-name">Product Name</th>
-                                <td class="grid-link__title">Cut Dress</td>
-                                <td class="grid-link__title">Floral Dress</td>
-                                <td class="grid-link__title">Notched Dresss</td>
-                                <td class="grid-link__title">Notched Dresss</td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Product Image</th>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/1.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>Product Price: </strong><span>Rs.</span></div>
+                                </li>
+                            </ul>
+                            <br>
+                            <table class="table">
+                                <thead>
+                                <tr class="th-compare">
+                                    <td>Order Id</td>';
+                                    $sql2 = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $result2 = $conn->query($sql2);
+                                    if($result2->num_rows>0){
+                                        while($row=$result2->fetch_assoc()){
+                                    echo'
+                                    <th class="item-row">
+                                        <button type="button" class="remove-compare">'.$order_id.'</button>
+                                    </th>';
+                                        }
+                                    }
+                                echo'
+                                </tr>
+                                </thead>
+                                <tbody id="table-compare">
+                                <tr>
+                                    <th class="product-name">Product Name</th>';
+                                    $sql3 = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $result3 = $conn->query($sql3);
+                                    if($result3->num_rows>0){
+                                        while($row=$result3->fetch_assoc()){
+                                            $product_name = $row['product_name'];
+                                    echo'<td class="grid-link__title">'.$product_name.'</td>
+                                    ';
+                                        }
+                                    }
+                                echo'
+                                </tr>
+                                <tr>
+                                    <th class="product-name">Product Image</th>';
+                                    $sql_1 = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $result_1 = $conn->query($sql_1);
+                                    if($result_1->num_rows>0){
+                                        while($row=$result_1->fetch_assoc()){
+                                            $product_image = $row['product_image'];
+                                            $final_cost = $row['final_cost'];
+                                    echo'<td class="item-row"><img src="'.$product_image.'" alt="product" class="   featured-image">
+                                    <div class="product-price product_price"><strong>Product Price: </strong><span>Rs.'.$final_cost.'</span></div>
                                     <form class="variants clearfix">
                                         <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Product Picked-up</button>
                                     </form>
                                     <!-- <p class="grid-link__title hidden">Cut Dress</p> -->
                                 </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/2.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/3.jpg" alt="product" class="   featured-image">
-                                    <div class="compare-label"><span class="label4">on sale</span></div>
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/4.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Pick-Up Location</th>
-                                <td class="item-row">
-                                    <p class="description-compare">Address with link</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Delivery Location</th>
-                                <td class="availabel-stock">
-                                    <p>Address with link</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                            </tr>
-                           
-                            </tbody>
-                        </table>
+                                    ';
+                                        }
+                                    }
+                                echo'   
+                                </tr>
+                                <tr>
+                                    <th class="product-name">Delivery Location</th>
+                                    <td class="item-row">
+                                        <p class="description-compare">Address with link</p>
+                                    </td>
+                                    <td class="item-row">
+                                        <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="product-name">Pick-Up Location</th>';
+                                    $sql_12 = "SELECT * FROM order_status WHERE item_id = '$order_id';";
+                                    $result_12 = $conn->query($sql_12);
+                                    if($result_12->num_rows>0){
+                                        while($row=$result_12->fetch_assoc()){
+                                            $shop_id = $row['shop_id'];
+                                            $sql_22 = "SELECT * FROM shops WHERE shop_id = '$shop_id';";
+                                            $result_22 = $conn->query($sql_22);
+                                            if($result_22->num_rows>0){
+                                                while($row=$result_22->fetch_assoc()){
+                                                    $shop_name = $row['shop_name'];
+                                                    $address_1 = $row['address_1'];
+                                                    $address_2 = $row['address_2'];
+                                                    $city = $row['city'];
+                                                    $state = $row['state'];
+                                                    $zipcode = $row['zipcode'];
+                                                    
+                                                }
+                                            }
+                                    echo'<td class="availabel-stock">
+                                    <p>'.$address_1.$address_2.','.$city.','.$state.' - '.$zipcode.'</p>
+                                    </td>';
+                                        }
+                                    }
+                                echo'
+                                </tr>
+                               
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>';
+    }
+}
+?>
 
-<section class="compare-padding section-big-py-space bg-light">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="compare-page">
-                    <div class="table-wrapper table-responsive">
-                        <h2>Order Number : 2</h2>
-                        <br>
-                        <ul>
-                            <li>
-                                <a class="btn btn-rounded btn-outline">
-                                    On The Way
-                                </a>
-                            </li>
-                            <li>
-                                <a class="btn btn-rounded btn-outline">
-                                    Delivered
-                                </a>
-                            </li>
-                        </ul>
-                        <br>
-                        <table class="table">
-                            <thead>
-                            <tr class="th-compare">
-                                <td>Order Id</td>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                                <th class="item-row">
-                                    <button type="button" class="remove-compare">Id</button>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody id="table-compare">
-                            <tr>
-                                <th class="product-name">Product Name</th>
-                                <td class="grid-link__title">Cut Dress</td>
-                                <td class="grid-link__title">Floral Dress</td>
-                                <td class="grid-link__title">Notched Dresss</td>
-                                <td class="grid-link__title">Notched Dresss</td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Product Image</th>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/1.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>Product Price: </strong><span>Rs.</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Product Picked-up</button>
-                                    </form>
-                                    <!-- <p class="grid-link__title hidden">Cut Dress</p> -->
-                                </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/2.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/3.jpg" alt="product" class="   featured-image">
-                                    <div class="compare-label"><span class="label4">on sale</span></div>
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                                <td class="item-row"><img src="../assets/images/layout-1/product/4.jpg" alt="product" class="   featured-image">
-                                    <div class="product-price product_price"><strong>On Sale: </strong><span>$89,00</span></div>
-                                    <form class="variants clearfix">
-                                        <input type="hidden">
-                                        <button title="Add to Cart" class="add-to-cart btn btn-normal">Add to Cart</button>
-                                    </form>
-                                    <p class="grid-link__title hidden">Cut Dress</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Pick-Up Location</th>
-                                <td class="item-row">
-                                    <p class="description-compare">Address with link</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                                <td class="item-row">
-                                    <p class="description-compare">Add an extra dose of style with this raw look henley t-shirt from the house...</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="product-name">Delivery Location</th>
-                                <td class="availabel-stock">
-                                    <p>Address with link</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                                <td class="availabel-stock">
-                                    <p>Availabel In stock</p>
-                                </td>
-                            </tr>
-                            
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- Section ends -->
 

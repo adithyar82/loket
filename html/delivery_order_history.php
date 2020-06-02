@@ -1,3 +1,10 @@
+<?php
+include('connect_db.php');
+$order_id = $_REQUEST['id'];
+$order_status = $_REQUEST['id1'];
+$sql = "UPDATE order_status SET status = '$order_status' WHERE item_id = '$order_id';";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -666,6 +673,16 @@
 <!-- breadcrumb End -->
 
 <!--section start-->
+<?php
+$sql1 = "SELECT * FROM order_status WHERE status = 'delivered';";
+$result1 = $conn->query($sql1);
+if($result1->num_rows>0){
+    while($row=$result1->fetch_assoc()){
+        $product_name = $row['product_name'];
+        $order_id = $row['item_id'];
+        $final_cost = $row['final_cost'];
+        $product_quantity = $row['product_quantity'];
+        echo'
 <section class="cart-section order-history section-big-py-space">
     <div class="custom-container">
         <div class="row">
@@ -683,9 +700,9 @@
                     <tbody>
                     <tr>
                         <td>
-                            <p>Product Name</p>
+                            <p>'.$product_name.'</p>
                         </td>
-                        <td><a href="#">order id: <span class="dark-data">15454841</span> <br>Delivered Location </a>
+                        <td><a href="#">order id: <span class="dark-data">'.$order_id.'</span> <br>Delivered Location </a>
                             <div class="mobile-cart-content row">
                                 <div class="col-xs-3">
                                     <div class="qty-box">
@@ -695,13 +712,13 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-3">
-                                    <h4 class="td-color">Rs.</h4></div>
+                                    <h4 class="td-color">Rs. '.$final_cost.'</h4></div>
                                 <div class="col-xs-3">
                                     <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
                             </div>
                         </td>
                         <td>
-                            <h4>Rs.</h4></td>
+                            <h4>Rs.'.$final_cost.'</h4></td>
                         <td>
                             <span>Quntity: 1</span>
                         </td>
@@ -714,78 +731,7 @@
                         </td>
                     </tr>
                     </tbody>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <a href="#"><img src="../assets/images/product-sidebar/002.jpg" alt="product" class="  img-fluid"></a>
-                        </td>
-                        <td><a href="#">order no: <span class="dark-data">15454841</span> <br>cotton shirt</a>
-                            <div class="mobile-cart-content row">
-                                <div class="col-xs-3">
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="text" name="quantity" class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <h4 class="td-color">$63.00</h4></div>
-                                <div class="col-xs-3">
-                                    <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
-                            </div>
-                        </td>
-                        <td>
-                            <h4>$63.00</h4></td>
-                        <td>
-                            <span>Size: L</span>
-                            <br>
-                            <span>Quntity: 1</span>
-                        </td>
-                        <td>
-                            <div class="responsive-data">
-                                <h4 class="price">$63.00</h4>
-                                <span>Size: L</span>|<span>Quntity: 1</span>
-                            </div>
-                            <span class="dark-data">Delivered</span> (jul 01, 2019)
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <a href="#"><img src="../assets/images/product-sidebar/001.jpg" alt="product" class="  img-fluid"></a>
-                        </td>
-                        <td><a href="#">order no: <span class="dark-data">15454841</span> <br>cotton shirt</a>
-                            <div class="mobile-cart-content row">
-                                <div class="col-xs-3">
-                                    <div class="qty-box">
-                                        <div class="input-group">
-                                            <input type="text" name="quantity" class="form-control input-number" value="1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <h4 class="td-color">$63.00</h4></div>
-                                <div class="col-xs-3">
-                                    <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a></h2></div>
-                            </div>
-                        </td>
-                        <td>
-                            <h4>$63.00</h4></td>
-                        <td>
-                            <span>Size: L</span>
-                            <br>
-                            <span>Quntity: 1</span>
-                        </td>
-                        <td>
-                            <div class="responsive-data">
-                                <h4 class="price">$63.00</h4>
-                                <span>Size: L</span>|<span>Quntity: 1</span>
-                            </div>
-                            <span class="dark-data">Delivered</span> (jul 01, 2019)
-                        </td>
-                    </tr>
-                    </tbody>
+                    
                 </table>
             </div>
         </div>
@@ -793,7 +739,9 @@
             <div class="col-12 pull-right"><a href="#" class="btn btn-normal btn-sm">show all orders</a></div>
         </div>
     </div>
-</section>
+</section>';
+    }
+}?>
 <!--section end-->
 
 

@@ -43,6 +43,17 @@
                             echo"<br>";
                             echo $time_2;
     $sql = "INSERT INTO user_location(username,user_x, user_y,distance,timestamp) VALUES('$username','$lat', '$lng','$distance_2', CURRENT_TIME());";
-    $result = $conn->query($sql);                   
+    $result = $conn->query($sql); 
+    if($distance_2<6){
+      echo'<script>
+      window.location = "payments.php";
+      </script>';
+    } 
+    else{
+        echo'<script>
+        alert("Delivery boy not available please try after sometime");
+        window.location = "category.php";
+        </script>';
+    }                 
     ?>
     

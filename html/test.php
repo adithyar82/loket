@@ -1,7 +1,7 @@
 ﻿<?php
     include('connect_db.php');
     $zipcode="573201";
-    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$zipcode."&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$zipcode."&key=AIzaSyDewuXN065D0-u0TC-kjt54acIw94n_RQA";
     $details=file_get_contents($url);
     $result = json_decode($details,true);
    
@@ -24,7 +24,7 @@
    ;
     echo $result;
     echo $sql;
-    $hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$lat,$lng&destinations=$lat1%2C$lng1&key=AIzaSyDeb2feCGV_WQXXYX4Rk9GgApaS58jhU1g";
+    $hmaps_request= "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$lat,$lng&destinations=$lat1%2C$lng1&key=AIzaSyDewuXN065D0-u0TC-kjt54acIw94n_RQA";
 						$data = file_get_contents($hmaps_request);
 						$data = json_decode($data);
 							$time = 0;
